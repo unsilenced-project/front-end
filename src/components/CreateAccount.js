@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import { createAccount } from "../actions/authActions";
 import { Collapse, Spin, Alert, Form, Icon, Input, Button } from "antd";
+// import youtube from "../apis/youtube";
 import "antd/dist/antd.css";
 import "./Login.scss";
+
+const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 class CreateAccount extends Component {
   state = {
@@ -11,6 +15,9 @@ class CreateAccount extends Component {
     email: "",
     password: "",
     channel_link: "",
+    channel_name: "",
+    img_link: "",
+    disqus_name: "",
     patreon: "",
     twitter: "",
     facebook: "",
@@ -29,9 +36,40 @@ class CreateAccount extends Component {
     });
   };
 
-  youtubeUpdate = channel => {
-    console.log("Youtube link", channel);
-    // To do
+  youtubeUpdate = async channel => {
+    let searchType = "id";
+    if (channel.includes("/channel/")) {
+      channel = channel
+        .substring(channel.indexOf("/channel/") + 9, channel.length - 1)
+        .split("/")[0]
+        .split("?")[0];
+    } else {
+      channel = channel
+        .substring(channel.indexOf("/user/") + 6, channel.length - 1)
+        .split("/")[0]
+        .split("?")[0];
+      searchType = "forUsername";
+    }
+    // console.log("Channel: ", channel);
+
+    const response = await axios.get(
+      "https://www.googleapis.com/youtube/v3/channels",
+      {
+        params: {
+          [searchType]: channel,
+          part: "snippet",
+          key: YOUTUBE_API_KEY
+        }
+      }
+    );
+    console.log(response);
+    if (response.data.items) {
+      this.setState({
+        ...this.state,
+        channel_name: response.data.items[0].snippet.title,
+        img_link: response.data.items[0].snippet.thumbnails.default.url
+      });
+    }
   };
 
   createAccount = event => {
@@ -42,6 +80,9 @@ class CreateAccount extends Component {
       email,
       password,
       channel_link,
+      channel_name,
+      img_link,
+      disqus_name,
       patreon,
       twitter,
       facebook,
@@ -52,6 +93,9 @@ class CreateAccount extends Component {
       email,
       password,
       channel_link,
+      channel_name,
+      // img_link,
+      // disqus_name: "unsilenced",
       social_links: JSON.stringify({
         patreon,
         twitter,
@@ -65,7 +109,7 @@ class CreateAccount extends Component {
   };
 
   render() {
-    const { onBlur } = this.props;
+    // const { onBlur } = this.props;
     return (
       <div className="login-wrapper">
         <div className="login-layout">
@@ -96,7 +140,7 @@ class CreateAccount extends Component {
                 placeholder="Youtube channel link *"
                 value={this.state.channel_link}
                 onChange={this.handleChanges}
-                onBlur={this.youtubeUpdate(this.state.channel_link)}
+                onBlur={() => this.youtubeUpdate(this.state.channel_link)}
               />
             </Form.Item>
             <Form.Item className="form-item">
