@@ -3,20 +3,20 @@ import YouTubeVideo from "./YouTubeVideo";
 import DisqusEmbed from "./DisqusEmbed";
 
 const WatchVideo = props => {
-  console.log(props);
+  let { username, videoID } = props.match.params;
+  let disqusShortname = props.default ? "unsilenced" : username;
 
-  let disqusShortname = props.default
-    ? "unsilenced"
-    : props.match.params.username;
+  console.log(props.location);
+  if (props.location.search) videoID = props.location.search.replace("?v=", "");
 
   const disqusConfig = {
-    url: `https://unsilenced.netlify.com${props.location.pathname}`,
-    id: props.match.params.videoID
+    url: `https://unsilenced.netlify.com`,
+    id: videoID
   };
 
   return (
     <>
-      <YouTubeVideo youtubeId={props.match.params.videoID} />
+      <YouTubeVideo youtubeId={videoID} />
       <DisqusEmbed
         disqusShortname={disqusShortname}
         disqusConfig={disqusConfig}

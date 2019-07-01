@@ -21,12 +21,14 @@ class App extends React.Component {
             <Route path="/register" component={CreateAccount} />
             <PrivateRoute path="/dashbord" component={Dashboard} />
             <Route
+              exact
               path="/:username/:videoID"
               render={props => {
                 return <WatchVideo {...props} />;
               }}
             />
             <Route
+              exact
               path="/:videoID"
               render={props => {
                 return <WatchVideo {...props} default={true} />;
