@@ -253,7 +253,14 @@ class CreateAccount extends Component {
                 onClick={e => this.createAccount}
               >
                 {!this.props.creating ? (
-                  "Sign up"
+                  <>
+                    Sign up {this.state.channel_name}{" "}
+                    {this.state.img_link ? (
+                      <img src={this.state.img_link} width={20} height={20} />
+                    ) : (
+                      ""
+                    )}
+                  </>
                 ) : (
                   <>
                     {"Signing up..."}
