@@ -52,23 +52,27 @@ class CreateAccount extends Component {
     }
     // console.log("Channel: ", channel);
 
-    const response = await axios.get(
-      "https://www.googleapis.com/youtube/v3/channels",
-      {
-        params: {
-          [searchType]: channel,
-          part: "snippet",
-          key: YOUTUBE_API_KEY
+    try {
+      const response = await axios.get(
+        "https://www.googleapis.com/youtube/v3/channels",
+        {
+          params: {
+            [searchType]: channel,
+            part: "snippet",
+            key: YOUTUBE_API_KEY
+          }
         }
+      );
+      console.log(response);
+      if (response.data.items) {
+        this.setState({
+          ...this.state,
+          channel_name: response.data.items[0].snippet.title,
+          img_link: response.data.items[0].snippet.thumbnails.default.url
+        });
       }
-    );
-    console.log(response);
-    if (response.data.items) {
-      this.setState({
-        ...this.state,
-        channel_name: response.data.items[0].snippet.title,
-        img_link: response.data.items[0].snippet.thumbnails.default.url
-      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
