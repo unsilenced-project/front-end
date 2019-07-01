@@ -10,7 +10,7 @@ const WatchVideo = props => {
   if (props.location.search) videoID = props.location.search.replace("?v=", "");
 
   const disqusConfig = {
-    url: `https://unsilenced.netlify.com`,
+    url: `https://unsilenced.netlify.com${videoID}`,
     id: videoID
   };
 
