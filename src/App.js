@@ -3,18 +3,12 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Login from "./components/Login";
 import Homepage from "./components/Homepage";
 import CreateAccount from "./components/CreateAccount";
-import DisqusEmbed from "./components/DisqusEmbed";
-// import YoutubeInfo from "./components/YoutubeInfo";
+import WatchVideo from "./components/WatchVideo";
 import "./components/measureElement";
 import "./App.css";
 
 class App extends React.Component {
   render() {
-    const disqusShortname = "unsilenced";
-    const disqusConfig = {
-      url: "https://unsilenced.netlify.com/testing",
-      id: "testing"
-    };
     return (
       <div className="App">
         <Router>
@@ -24,15 +18,15 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={CreateAccount} />
             <Route
-              path="/testing"
+              path="/:username/:videoID"
               render={props => {
-                return (
-                  <DisqusEmbed
-                    {...props}
-                    disqusShortname={disqusShortname}
-                    disqusConfig={disqusConfig}
-                  />
-                );
+                return <WatchVideo {...props} />;
+              }}
+            />
+            <Route
+              path="/:videoID"
+              render={props => {
+                return <WatchVideo {...props} default={true} />;
               }}
             />
             {/* <PrivateRoute path="/dashboard" component={Dashboard} /> */}
