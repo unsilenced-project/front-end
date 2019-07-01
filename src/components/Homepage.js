@@ -11,7 +11,7 @@ const Homepage = () => {
       <br />
       <a href="/register">Register</a>
       <br />
-      <a href="/dashboard">Dashboard</a>
+      <a href="/dashbord">Dashboard</a>
     </div>
   );
 };
