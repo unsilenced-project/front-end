@@ -1,8 +1,8 @@
-import { LOGIN_SUCCESS } from "../actions";
+import { LOGIN_SUCCESS } from "../actions/authActions";
 
 export const setToken = store => next => action => {
-  if(action.type === LOGIN_SUCCESS) {
-    localStorage.setItem("userToken", action.payload);
+  if (action.type === LOGIN_SUCCESS) {
+    localStorage.setItem("token", action.payload);
   }
   next(action);
 };
