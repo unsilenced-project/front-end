@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Bounce from "react-reveal/Bounce";
 import { Message } from "semantic-ui-react";
 
-const Entry = () => {
+const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
   const [currentUser, setCurrentUser] = useState("testUser");
   const [unsilencedPath, setUnsilencedPath] = useState("");
@@ -95,7 +95,7 @@ const Entry = () => {
   );
 };
 
-export default Entry;
+export default Dashboard;
 
 const EntryWrap = styled.div`
   display: flex;
