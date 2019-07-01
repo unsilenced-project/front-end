@@ -6,7 +6,8 @@ import CreateAccount from "./components/CreateAccount";
 import WatchVideo from "./components/WatchVideo";
 import "./components/measureElement";
 import "./App.css";
-import Dashboard from "./components/Dashboard/Dashbord"
+import Dashboard from "./components/Dashboard/Dashbord";
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
             <Route exact path="/" component={Homepage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={CreateAccount} />
+            <PrivateRoute path="/dashbord" component={Dashboard} />
             <Route
               path="/:username/:videoID"
               render={props => {
@@ -30,7 +32,6 @@ class App extends React.Component {
                 return <WatchVideo {...props} default={true} />;
               }}
             />
-            <Route path="/dashbord" component={Dashboard} />
           </Switch>
         </Router>
       </div>
