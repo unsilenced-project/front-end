@@ -29,6 +29,11 @@ class CreateAccount extends Component {
     });
   };
 
+  youtubeUpdate = channel => {
+    console.log("Youtube link", channel);
+    // To do
+  };
+
   createAccount = event => {
     console.log("create account event", event);
     event.preventDefault();
@@ -55,11 +60,12 @@ class CreateAccount extends Component {
       })
     };
     this.props.createAccount(newUser).then(() => {
-      !this.props.error && this.props.history.push("/testing");
+      !this.props.error && this.props.history.push("/login");
     });
   };
 
   render() {
+    const { onBlur } = this.props;
     return (
       <div className="login-wrapper">
         <div className="login-layout">
@@ -77,6 +83,20 @@ class CreateAccount extends Component {
                 autoComplete="username"
                 value={this.state.username}
                 onChange={this.handleChanges}
+              />
+            </Form.Item>
+            <Form.Item className="form-item">
+              <Input
+                required
+                className="login-input"
+                prefix={
+                  <Icon type="youtube" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                name="channel_link"
+                placeholder="Youtube channel link *"
+                value={this.state.channel_link}
+                onChange={this.handleChanges}
+                onBlur={this.youtubeUpdate(this.state.channel_link)}
               />
             </Form.Item>
             <Form.Item className="form-item">
@@ -105,19 +125,6 @@ class CreateAccount extends Component {
                 placeholder="Password *"
                 autoComplete="current-password"
                 value={this.state.password}
-                onChange={this.handleChanges}
-              />
-            </Form.Item>
-            <Form.Item className="form-item">
-              <Input
-                required
-                className="login-input"
-                prefix={
-                  <Icon type="youtube" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                name="channel_link"
-                placeholder="Youtube channel link *"
-                value={this.state.channel_link}
                 onChange={this.handleChanges}
               />
             </Form.Item>
@@ -229,6 +236,7 @@ class CreateAccount extends Component {
 }
 
 const mapStateToProps = state => ({
+  channel: state.channel_link,
   error: state.user.error,
   creating: state.user.creating
 });

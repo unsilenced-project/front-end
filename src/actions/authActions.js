@@ -25,6 +25,7 @@ export const login = creds => dispatch => {
 };
 
 export const logout = () => {
+  // To be completed
   return {
     type: LOGOUT
   };

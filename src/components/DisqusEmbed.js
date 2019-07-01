@@ -2,9 +2,7 @@ import React from "react";
 import Disqus from "disqus-react";
 import "./DisqusEmbed.scss";
 
-const DisqusEmbed = props => {
-  const { disqusShortname, disqusConfig } = props;
-
+const DisqusEmbed = ({ disqusShortname, disqusConfig }) => {
   return (
     <div className="comments-wrapper">
       <h1>{disqusConfig.title}</h1>
