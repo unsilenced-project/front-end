@@ -35,7 +35,7 @@ export const updateUser = (id, userData) => dispatch => {
   dispatch(startLoading());
 
   axiosWithAuth()
-    .get(`${baseURL}/${id}`, userData)
+    .put(`${baseURL}/${id}`, userData)
     .then(res => {
       debugger;
       dispatch({ type: types.UPDATE_USER_SUCCESS, payload: res.data });
@@ -48,5 +48,3 @@ export const updateUser = (id, userData) => dispatch => {
       dispatch(stopLoading());
     });
 };
-
-

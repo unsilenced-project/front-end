@@ -4,24 +4,51 @@ import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
 import { getUserById, updateUser } from "../../actions/userActions";
-import { Button } from "semantic-ui-react";
+import { Button, Message } from "semantic-ui-react";
 
 const Settings = props => {
-  const [usernameData, setUsernameData] = useState("");
-  const [emailData, setEmailData] = useState("");
-  const [ChannelName, setChannelName] = useState("");
-  const [ChannelLink, setChannelLink] = useState("");
-  const [DisqusName, setDisqusName] = useState("");
+  const [usernameData, setUsernameData] = useState(props.currentUser.username);
+  const [emailData, setEmailData] = useState(props.currentUser.email);
+  const [ChannelName, setChannelName] = useState(
+    props.currentUser.channel_name
+  );
+  const [ChannelLink, setChannelLink] = useState(
+    props.currentUser.channel_link
+  );
+  const [DisqusName, setDisqusName] = useState(props.currentUser.disqus_name);
   const [passwrdData, setPasswordData] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [user, setUser] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     props.getUserById(userId);
   }, []);
 
-  console.log(props.currentUser);
+  const updateUser = () => {
+    setError("");
+    const userId = localStorage.getItem("userId");
+
+    const newUser = {
+      username: usernameData,
+      email: emailData,
+      channel_link: ChannelLink,
+      channel_name: ChannelName,
+      disqus_name: DisqusName
+    };
+
+    console.log(userId, newUser);
+    props.updateUser(userId, newUser);
+  };
+
+  const changePassword = () => {
+    setError("");
+    if (passwrdData === newPassword) {
+      alert("passwrd");
+    } else {
+      setError("Please provide the same password in the fields");
+    }
+  };
   const {
     username,
     email,
@@ -64,7 +91,9 @@ const Settings = props => {
           handleChange={e => setDisqusName(e.target.value)}
           loading={props.loading}
         />
-        <CostumButton positive>Update</CostumButton>
+        <CostumButton positive onClick={updateUser} loading={props.loading}>
+          Update
+        </CostumButton>
 
         <PasswordField>
           <Input
@@ -79,7 +108,11 @@ const Settings = props => {
             handleChange={e => setNewPassword(e.target.value)}
             loading={props.loading}
           />
-          <CostumButton positive>Change Password</CostumButton>
+          <CostumButton positive onClick={changePassword}>
+            Change Password
+          </CostumButton>
+
+          {error && <Message>{error}</Message>}
         </PasswordField>
       </FormContainer>
     </div>
@@ -94,7 +127,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getUserById
+  getUserById,
+  updateUser
 };
 
 export default connect(
