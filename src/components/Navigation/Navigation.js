@@ -74,7 +74,7 @@ const Navigation = props => {
             Home
           </Menu.Item>
         </Link>
-        <Link to="/settings">
+        <Link to="/about">
           <Menu.Item as="a" style={{ marginBottom: 50 }}>
             <Icon name="user md" />
             About

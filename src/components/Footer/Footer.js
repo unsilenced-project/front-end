@@ -20,7 +20,7 @@ const NavContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 72px;
+  height: 100px;
   background: #fff;
   transition: all 0.5s ease-in-out;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);

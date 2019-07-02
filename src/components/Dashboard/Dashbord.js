@@ -43,15 +43,15 @@ const Dashboard = () => {
   };
 
   const linkParser = link => {
-    link = link.replace("youtu.be/", "youtube.com/watch?v=");
-    const url = new URL(link);
-    const videoLink = url.searchParams.get("v");
-    console.log(videoLink);
     // const splitBy = link.split("/");
     //console.log(splitBy);
     //setYoutubeIndentifier(splitBy[3]);
     if (inputValidation()) {
       setError(null);
+      link = link.replace("youtu.be/", "youtube.com/watch?v=");
+      const url = new URL(link);
+      const videoLink = url.searchParams.get("v");
+      console.log(videoLink);
       // createUnsilencedPath(splitBy[3]);
       createUnsilencedPath(videoLink);
     }
@@ -109,8 +109,9 @@ const EntryWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 0;
   height: 100vh;
+  background: #f0f8ff;
 `;
 
 const Title = styled.div`

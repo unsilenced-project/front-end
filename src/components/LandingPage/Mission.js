@@ -39,7 +39,7 @@ const MissionContainer = styled.section`
   background-color: darkred;
   flex-wrap: nowrap;
   @media (max-width: 500px) {
-    height: 500px;
+    height: 700px;
   }
 `;
 const Article = styled.article`
@@ -96,11 +96,15 @@ const GetStarted = styled(Link)`
   text-transform: uppercase;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
     background: black;
     border: 2px solid #fff;
     color: #fff;
     -webkit-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
+    text-decoration: none;
   }
 `;
