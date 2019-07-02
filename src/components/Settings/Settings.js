@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
 import { getUserById } from "../../actions/userActions";
+import { Button } from "semantic-ui-react";
 
 const Settings = props => {
   const [usernameData, setUsername] = useState("");
@@ -57,8 +58,7 @@ const Settings = props => {
           handleChange={e => setUsername(e.target.value)}
           loading={props.loading}
         />
-
-        <button>Update</button>
+        <CostumButton positive>Update</CostumButton>
 
         <PasswordField>
           <Input
@@ -73,7 +73,7 @@ const Settings = props => {
             handleChange={e => setUsername(e.target.value)}
             loading={props.loading}
           />
-          <button>Change Password</button>
+          <CostumButton positive>Change Password</CostumButton>
         </PasswordField>
       </FormContainer>
     </div>
@@ -99,22 +99,25 @@ export default connect(
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 100px;
-  button {
-    width: 20%;
-    margin: 20px auto;
-  }
+  border: 1px solid black;
 `;
 
 const PasswordField = styled.div`
   display: flex;
+  width: 100%;
   padding: 20px;
   margin-top: 10px;
   flex-direction: column;
-  border-top: 0.4px solid grey;
+  justify-content: center;
+  align-items: center;
+  border: 0.4px solid grey;
+`;
 
-  button {
-    width: 20%;
-    margin: 20px auto;
-  }
+const CostumButton = styled(Button)`
+  width: 350px;
+  margin: 20px auto;
 `;
