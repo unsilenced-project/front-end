@@ -1,15 +1,28 @@
 import React from "react";
 
-import { Ul } from "./NavigationStyles";
 import NavItem from "./NavItem";
 
-export default function NavItems({ flex }) {
+export default function NavItems() {
   return (
-    <Ul flex={flex}>
-      <NavItem exact link="/">
+    <div>
+      <CustomNavLink exact link="/">
         Home
-      </NavItem>
-      <NavItem link="/about-us">About</NavItem>
-    </Ul>
+      </CustomNavLink>
+      <CustomNavLink link="/about-us">About</CustomNavLink>
+    </div>
   );
 }
+
+const CustomNavLink = styled(NavLink)`
+  color: black;
+  font-size: 1.6rem;
+  text-decoration: none;
+  padding-bottom: 2.1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  &:hover,
+  &.active {
+    border-bottom: 4px solid red;
+    color: blue;
+  }
+`;
