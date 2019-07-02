@@ -31,26 +31,31 @@ const Settings = props => {
           content="Username"
           placeholder={username}
           handleChange={e => setUsername(e.target.value)}
+          loading={props.loading}
         />
         <Input
           content="Email"
           placeholder={email}
           handleChange={e => setUsername(e.target.value)}
+          loading={props.loading}
         />
         <Input
           content="Channel Link"
           placeholder={channel_link}
           handleChange={e => setUsername(e.target.value)}
+          loading={props.loading}
         />
         <Input
           content="Channel Name"
           placeholder={channel_name}
           handleChange={e => setUsername(e.target.value)}
+          loading={props.loading}
         />
         <Input
           content="Disqus Name"
           placeholder={disqus_name}
           handleChange={e => setUsername(e.target.value)}
+          loading={props.loading}
         />
 
         <button>Update</button>
@@ -60,11 +65,13 @@ const Settings = props => {
             content="Password"
             placeholder="new password"
             handleChange={e => setUsername(e.target.value)}
+            loading={props.loading}
           />
           <Input
             content="Comfirm new Passwoord"
             placeholder="test"
             handleChange={e => setUsername(e.target.value)}
+            loading={props.loading}
           />
           <button>Change Password</button>
         </PasswordField>
@@ -75,7 +82,8 @@ const Settings = props => {
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.userData.userData
+    currentUser: state.userData.userData,
+    loading: state.userData.loading
   };
 };
 

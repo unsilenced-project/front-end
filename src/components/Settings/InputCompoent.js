@@ -2,7 +2,7 @@ import React, { createRef, useState } from "react";
 import { Input, Button } from "semantic-ui-react";
 import styled from "styled-components";
 
-const InputComponent = ({ content, placeholder, handleChange }) => {
+const InputComponent = ({ content, placeholder, handleChange, loading }) => {
   const handleClick = () => inputRef.current.focus();
   const inputRef = createRef();
   return (
@@ -13,6 +13,7 @@ const InputComponent = ({ content, placeholder, handleChange }) => {
           ref={inputRef}
           placeholder={placeholder}
           onChange={handleChange}
+          loading={loading}
         />
       </Field>
     </div>
