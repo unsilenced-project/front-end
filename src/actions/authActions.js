@@ -7,6 +7,7 @@ export const LOGOUT = "LOGOUT";
 export const CREATE_START = "CREATE_START";
 export const CREATE_SUCCESS = "CREATE_SUCCESS";
 export const CREATE_ERROR = "CREATE_ERROR";
+export const FORGOT_PASS_START = "FORGOT_PASS_START";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
@@ -39,6 +40,8 @@ export const createAccount = creds => dispatch => {
     .then(response => {
       console.log("createAccount response", response);
       localStorage.setItem("username", creds.username);
+      if (creds.disqus_name)
+        localStorage.setItem("disqusShortname", creds.disqus_name);
       dispatch({ type: CREATE_SUCCESS, payload: response.data.payload });
     })
     .catch(error => {
@@ -46,3 +49,5 @@ export const createAccount = creds => dispatch => {
       dispatch({ type: CREATE_ERROR, payload: error.response.data });
     });
 };
+
+export const forgotPass = email => dispatch => {};
