@@ -102,8 +102,7 @@ const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
-  border: 1px solid black;
+  height: 100vh;
 `;
 
 const PasswordField = styled.div`
@@ -114,7 +113,7 @@ const PasswordField = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0.4px solid grey;
+  border-top: 0.4px solid grey;
 `;
 
 const CostumButton = styled(Button)`
