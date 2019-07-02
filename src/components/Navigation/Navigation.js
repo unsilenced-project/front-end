@@ -2,14 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
-export default function Navigation() {
+const Navigation = props => {
   // const [isOpen, setState] = useState(false);
 
   // const toggleNav = () => {
   //   setState(prevState => !prevState);
   // };
+
+  const logout = () => {
+    localStorage.clear();
+    props.history.push("/");
+  };
 
   return (
     <NavContainer>
@@ -24,14 +29,19 @@ export default function Navigation() {
           </NavLinkWrap>
           <NavLinkWrap to="/about-us">About</NavLinkWrap>
           {localStorage.getItem("token") && (
-            <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+            <SettingsWrapper>
+              <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+              <button onClick={logout}>Logout</button>
+            </SettingsWrapper>
           )}
         </NavItems>
         <Hamburger />
       </NavContent>
     </NavContainer>
   );
-}
+};
+
+export default withRouter(Navigation);
 
 const NavContainer = styled.div`
   position: fixed;
@@ -79,6 +89,7 @@ const Logo = styled.div`
 
 const NavItems = styled.div`
   padding-right: 50px;
+  display: flex;
 `;
 
 const NavLinkWrap = styled(NavLink)`
@@ -99,4 +110,21 @@ const NavLinkWrap = styled(NavLink)`
 
 const NavContent = styled.div`
   display: flex;
+`;
+
+const SettingsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    border-radius: 30%;
+    padding: 0 10px;
+    height: 50px;
+    transition: all 1s;
+    outline: none;
+    &:hover {
+      background-color: darkred;
+      color: white;
+    }
+  }
 `;

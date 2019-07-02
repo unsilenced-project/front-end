@@ -4,11 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Mission from "./LandingPage/Mission";
 import Steps from "./LandingPage/ServiceSteps";
 import UserTestimonials from "./LandingPage/UserTestimonials";
+import Navigation from "./Navigation/Navigation";
 
 const Homepage = () => {
   return (
     <div>
-      <div>
+      <div style={{ marginTop: 70 }}>
         <a href="/unsilenced/c6rkYrwudww">Sample Video and Comments</a>
         <br />
         <a href="/login">Login</a>
@@ -19,6 +20,7 @@ const Homepage = () => {
       </div>
 
       <div>
+        <Navigation />
         <Mission />
         <Steps />
         <UserTestimonials />
