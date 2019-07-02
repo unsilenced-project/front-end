@@ -1,6 +1,8 @@
 import React from "react";
 import YouTubeVideo from "./YouTubeVideo";
 import DisqusEmbed from "./DisqusEmbed";
+import Navigation from "./Navigation/Navigation";
+import Footer from "./Footer/Footer";
 
 const WatchVideo = props => {
   let { username, videoID } = props.match.params;
@@ -16,11 +18,13 @@ const WatchVideo = props => {
 
   return (
     <>
+      <Navigation />
       <YouTubeVideo youtubeId={videoID} />
       <DisqusEmbed
         disqusShortname={disqusShortname}
         disqusConfig={disqusConfig}
       />
+      <Footer />
     </>
   );
 };

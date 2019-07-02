@@ -8,16 +8,14 @@ const Navigation = props => {
       <Logo>
         <img src={logo} alt="logoo" />
       </Logo>
-
-      <NavContent>ALL RIGHT RESERVED</NavContent>
+      <h1>ALL RIGHT RESERVED</h1>
     </NavContainer>
   );
 };
 
-export default withRouter(Navigation);
+export default Navigation;
 
 const NavContainer = styled.div`
-  position: fixed;
   z-index: 1000;
   bottom: 0;
   left: 0;
@@ -30,7 +28,12 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  padding: 10px;
+
+  h1 {
+    font-size: 17px;
+    padding: 10px;
+  }
   /* @media (max-width: 500px) {
     display: flex;
     flex-direction: column;

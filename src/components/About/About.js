@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Navigation from "../Navigation/Navigation";
 import sorin from "../../assets/sorin.jpg";
 import michael from "../../assets/michael.jpeg";
+import Footer from "../Footer/Footer";
 
 import {
   FacebookIcon,
@@ -56,6 +57,7 @@ export default function AboutPage() {
           </Profile>
         </Content>
       </Section>
+      <Footer />
     </Container>
   );
 }
