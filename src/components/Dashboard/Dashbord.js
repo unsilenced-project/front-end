@@ -42,8 +42,9 @@ const Dashboard = () => {
 
   const linkParser = link => {
     link = link.replace("youtu.be/", "youtube.com/watch?v=");
-    const params = new URLSearchParams(link);
-    const videoLink = params.get("v");
+    const url = new URL(link);
+    const videoLink = url.searchParams.get("v");
+    console.log(videoLink);
     // const splitBy = link.split("/");
     //console.log(splitBy);
     //setYoutubeIndentifier(splitBy[3]);
