@@ -30,3 +30,19 @@ export const getUserById = id => dispatch => {
       dispatch(stopLoading());
     });
 };
+
+export const updateUser = (id, userData) => dispatch => {
+  dispatch(startLoading());
+
+  axiosWithAuth()
+    .put(`${baseURL}/${id}`, userData)
+    .then(res => {
+      dispatch({ type: types.UPDATE_USER_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: types.UPDATE_USER_FAIL, payload: err.message });
+    })
+    .finally(() => {
+      dispatch(stopLoading());
+    });
+};
