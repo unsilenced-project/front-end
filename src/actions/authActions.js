@@ -40,6 +40,8 @@ export const createAccount = creds => dispatch => {
     .then(response => {
       console.log("createAccount response", response);
       localStorage.setItem("username", creds.username);
+      if (creds.disqus_name)
+        localStorage.setItem("disqusShortname", creds.disqus_name);
       dispatch({ type: CREATE_SUCCESS, payload: response.data.payload });
     })
     .catch(error => {

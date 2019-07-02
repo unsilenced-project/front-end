@@ -7,7 +7,9 @@ import { Message } from "semantic-ui-react";
 
 const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
-  const [currentUser, setCurrentUser] = useState("testUser");
+  const [currentUser, setCurrentUser] = useState(
+    localStorage.getItem("disqusShortname") || "testUser"
+  );
   const [unsilencedPath, setUnsilencedPath] = useState("");
   const [showLinkButton, setShowLinkButton] = useState(false);
   const [error, setError] = useState("");
@@ -26,7 +28,10 @@ const Dashboard = () => {
       setError("Please provide a youtube link");
       setShowLinkButton(false);
       return false;
-    } else if (!inputLink.includes("www.youtube.com/")) {
+    } else if (
+      !inputLink.includes("www.youtube.com/") &&
+      !inputLink.includes("youtu.be")
+    ) {
       setError("Please provide valid youtube link");
       setShowLinkButton(false);
 
@@ -36,12 +41,16 @@ const Dashboard = () => {
   };
 
   const linkParser = link => {
-    const splitBy = link.split("/");
+    link = link.replace("youtu.be/", "youtube.com/watch?v=");
+    const params = new URLSearchParams(link);
+    const videoLink = params.get("v");
+    // const splitBy = link.split("/");
     //console.log(splitBy);
     //setYoutubeIndentifier(splitBy[3]);
     if (inputValidation()) {
       setError(null);
-      createUnsilencedPath(splitBy[3]);
+      // createUnsilencedPath(splitBy[3]);
+      createUnsilencedPath(videoLink);
     }
   };
 

@@ -37,7 +37,7 @@ class Login extends Component {
     console.log("login event", event);
     event.preventDefault();
     this.props.login(this.state.credentials).then(() => {
-      !this.props.error && this.props.history.push("/dashbord");
+      !this.props.error && this.props.history.push("/dashboard");
     });
   };
 
