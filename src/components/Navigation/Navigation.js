@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { NavLink, withRouter } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 
 const Navigation = props => {
-  // const [isOpen, setState] = useState(false);
-
-  // const toggleNav = () => {
-  //   setState(prevState => !prevState);
-  // };
+  const [isOpen, setSideBar] = useState(false);
 
   const logout = () => {
     localStorage.clear();
@@ -31,7 +28,14 @@ const Navigation = props => {
           {localStorage.getItem("token") && (
             <SettingsWrapper>
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
-              <button onClick={logout}>Logout</button>
+              <Button
+                inverted
+                color="purple"
+                onClick={logout}
+                style={{ marginLeft: 20 }}
+              >
+                Logout
+              </Button>
             </SettingsWrapper>
           )}
         </NavItems>
@@ -88,7 +92,7 @@ const Logo = styled.div`
 `;
 
 const NavItems = styled.div`
-  padding-right: 50px;
+  padding-right: 20px;
   display: flex;
 `;
 
@@ -110,6 +114,8 @@ const NavLinkWrap = styled(NavLink)`
 
 const NavContent = styled.div`
   display: flex;
+  width: 100%;
+  justify-content: flex-end;
 `;
 
 const SettingsWrapper = styled.div`

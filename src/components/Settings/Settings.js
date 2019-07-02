@@ -100,7 +100,7 @@ const Settings = props => {
 
         <PasswordField>
           <Input
-            content="Password"
+            content="New Password"
             placeholder="new password"
             handleChange={e => setPasswordData(e.target.value)}
             loading={props.loading}
