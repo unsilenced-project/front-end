@@ -1,13 +1,16 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useState, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 import styled from "styled-components";
 import Input from "./InputCompoent";
+import { connect } from "react-redux";
 
-const Settings = () => {
+const Settings = ({ userData }) => {
   const [username, setUsername] = useState("");
 
   const handleClick = () => inputRef.current.focus();
   const inputRef = createRef();
+
+  console.log("User DATA:  ", userData);
 
   console.log(username);
   return (
@@ -65,7 +68,13 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+const mapStateToProps = state => {
+  return {
+    userData: state.user.userData
+  };
+};
+
+export default connect(mapStateToProps)(Settings);
 
 const FormContainer = styled.div`
   display: flex;
