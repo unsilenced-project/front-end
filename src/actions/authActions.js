@@ -17,11 +17,11 @@ export const login = creds => dispatch => {
       console.log("login response", response);
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: response.data.token,
-        payloadWithAllUserData: response.data
+        payload: response.data.token
       });
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", creds.username);
+      localStorage.setItem("userId", response.data.id);
     })
     .catch(error => {
       console.log("login error.message", error.response.data.message);
