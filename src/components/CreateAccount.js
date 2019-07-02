@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import axios from "axios";
 import { createAccount } from "../actions/authActions";
 import { Collapse, Spin, Alert, Form, Icon, Input, Button } from "antd";
-// import youtube from "../apis/youtube";
 import "antd/dist/antd.css";
 import "./Login.scss";
 
@@ -37,21 +36,15 @@ class CreateAccount extends Component {
   };
 
   youtubeUpdate = async channel => {
-    let searchType = "id";
-    if (channel.includes("/channel/")) {
-      channel = channel
-        .substring(channel.indexOf("/channel/") + 9, channel.length - 1)
-        .split("/")[0]
-        .split("?")[0];
+    if (!channel.includes("youtube.com")) return null;
+    if (!channel.includes("http")) channel = "https://" + channel;
+    const searchType = channel.includes("/channel/") ? "id" : "forUsername";
+    channel = channel.split("/");
+    if (channel.length < 5) {
+      return null;
     } else {
-      channel = channel
-        .substring(channel.indexOf("/user/") + 6, channel.length - 1)
-        .split("/")[0]
-        .split("?")[0];
-      searchType = "forUsername";
+      channel = channel[4].split("?")[0];
     }
-    // console.log("Channel: ", channel);
-
     try {
       const response = await axios.get(
         "https://www.googleapis.com/youtube/v3/channels",
@@ -145,6 +138,19 @@ class CreateAccount extends Component {
                 value={this.state.channel_link}
                 onChange={this.handleChanges}
                 onBlur={() => this.youtubeUpdate(this.state.channel_link)}
+              />
+            </Form.Item>
+            <Form.Item className="form-item">
+              <Input
+                required
+                className="login-input"
+                prefix={
+                  <Icon type="wechat" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                name="disqus_name"
+                placeholder="Disqus name *"
+                value={this.state.disqus_name}
+                onChange={this.handleChanges}
               />
             </Form.Item>
             <Form.Item className="form-item">
@@ -258,7 +264,7 @@ class CreateAccount extends Component {
               >
                 {!this.props.creating ? (
                   <>
-                    Sign up {this.state.channel_name}{" "}
+                    Sign up <em>{this.state.channel_name}</em>{" "}
                     {this.state.img_link ? (
                       <img src={this.state.img_link} width={20} height={20} />
                     ) : (
