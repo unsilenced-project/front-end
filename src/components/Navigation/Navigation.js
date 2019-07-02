@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, withRouter, Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
+import { Header, Icon, Image, Menu, Segment, Sidebar } from "semantic-ui-react";
 
 const Navigation = props => {
   const [isOpen, setSideBar] = useState(false);
@@ -11,6 +12,14 @@ const Navigation = props => {
   const logout = () => {
     localStorage.clear();
     props.history.push("/");
+  };
+
+  const closeMenu = () => {
+    setSideBar(false);
+  };
+
+  const toggleMenu = () => {
+    setSideBar(!isOpen);
   };
 
   return (
@@ -39,8 +48,43 @@ const Navigation = props => {
             </SettingsWrapper>
           )}
         </NavItems>
-        <Hamburger />
+        <Hamburger onClick={toggleMenu} />
       </NavContent>
+
+      <Sidebar
+        as={Menu}
+        animation="overlay"
+        icon="labeled"
+        inverted
+        onHide={closeMenu}
+        vertical
+        visible={isOpen}
+        width="thin"
+        style={{ marginTop: "100px" }}
+      >
+        <Menu.Item as="div" />
+        <Menu.Item as="div" style={{ marginBottom: 50 }}>
+          <Logo>
+            <img src={logo} alt="logoo" />
+          </Logo>
+        </Menu.Item>
+        <Link to="/">
+          <Menu.Item as="div" style={{ marginBottom: 50 }}>
+            <Icon name="code" />
+            Home
+          </Menu.Item>
+        </Link>
+        <Menu.Item as="a" style={{ marginBottom: 50 }}>
+          <Icon name="user md" />
+          About
+        </Menu.Item>
+        <Link to="/settings">
+          <Menu.Item as="div" style={{ marginBottom: 50 }}>
+            <Icon name="settings" />
+            Settings
+          </Menu.Item>
+        </Link>
+      </Sidebar>
     </NavContainer>
   );
 };
@@ -72,8 +116,10 @@ const NavContainer = styled.div`
 export const Hamburger = styled(FaBars)`
   color: darkred;
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
+  margin-right: 20px;
   display: none;
+  z-index: 1000;
   @media (max-width: 500px) {
     display: inline-block;
   }
@@ -94,6 +140,10 @@ const Logo = styled.div`
 const NavItems = styled.div`
   padding-right: 20px;
   display: flex;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const NavLinkWrap = styled(NavLink)`
