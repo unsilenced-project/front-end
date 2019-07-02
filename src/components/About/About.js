@@ -1,9 +1,8 @@
 import React from "react";
 import "styled-components/macro";
 import styled from "styled-components";
-import SocialLinks from "./Social";
-import teamProfiles from "./data";
 import Navigation from "../Navigation/Navigation";
+import sorin from "../../assets/sorin.jpg";
 
 import {
   FacebookIcon,
@@ -42,7 +41,7 @@ export default function AboutPage() {
             </SocialLinksWrapper>
           </Profile>
           <Profile>
-            <Card bgImage="sdsds" />
+            <Card bgImage={sorin} />
             <h2>Sorin Chis</h2>
             <SocialLinksWrapper>
               <a href="">
@@ -120,7 +119,7 @@ const Profile = styled.div`
 `;
 
 const Card = styled.div`
-  width: 350px;
+  width: 300px;
   height: 300px;
   border-radius: 50%;
   box-shadow: 0px 3px 5px 1px rgba(48, 37, 37, 0.459);
