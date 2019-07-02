@@ -30,8 +30,6 @@ export const HandsFa = styled(FaComment)`
   ${iconStyle};
 `;
 
-
-
 export const ServicesContainer = styled.section`
   ${flexColum};
   width: 100%;
