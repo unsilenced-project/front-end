@@ -24,7 +24,10 @@ export default function Navigation() {
           </NavLinkWrap>
           <NavLinkWrap to="/about-us">About</NavLinkWrap>
           {localStorage.getItem("token") && (
-            <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+            <SettingsWrapper>
+              <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+              <button>Logout</button>
+            </SettingsWrapper>
           )}
         </NavItems>
         <Hamburger />
@@ -79,6 +82,7 @@ const Logo = styled.div`
 
 const NavItems = styled.div`
   padding-right: 50px;
+  display: flex;
 `;
 
 const NavLinkWrap = styled(NavLink)`
@@ -99,4 +103,21 @@ const NavLinkWrap = styled(NavLink)`
 
 const NavContent = styled.div`
   display: flex;
+`;
+
+const SettingsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    border-radius: 30%;
+    padding: 0 10px;
+    height: 50px;
+    transition: all 1s;
+    outline: none;
+    &:hover {
+      background-color: darkred;
+      color: white;
+    }
+  }
 `;

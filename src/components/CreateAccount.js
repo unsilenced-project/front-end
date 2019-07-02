@@ -4,6 +4,7 @@ import { createAccount } from "../actions/authActions";
 import { Collapse, Spin, Alert, Form, Icon, Input, Button } from "antd";
 import "antd/dist/antd.css";
 import "./Login.scss";
+import Navigation from "./Navigation/Navigation";
 
 class CreateAccount extends Component {
   state = {
@@ -68,6 +69,7 @@ class CreateAccount extends Component {
     const { onBlur } = this.props;
     return (
       <div className="login-wrapper">
+        <Navigation />
         <div className="login-layout">
           <h2>Register</h2>
           <Form onSubmit={this.createAccount} className="login-form">
