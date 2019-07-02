@@ -19,6 +19,7 @@ const Homepage = () => {
 
       <div>
         <Mission />
+        <Steps />
       </div>
     </div>
   );

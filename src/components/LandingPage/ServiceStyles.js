@@ -9,7 +9,7 @@ import {
   transition,
   mobileWidth
 } from "../../components/generalStyles/reusables";
-import { FaSuitcase, FaUsers, FaLeaf, FaUtensils } from "react-icons/fa";
+import { FaComment } from "react-icons/fa";
 
 const rotate360 = keyframes`
   from {
@@ -26,18 +26,11 @@ const iconStyle = css`
   }
 `;
 
-export const SuitCaseIcon = styled(FaSuitcase)`
+export const HandsFa = styled(FaComment)`
   ${iconStyle};
 `;
-export const LeafIcon = styled(FaLeaf)`
-  ${iconStyle};
-`;
-export const UsersIcon = styled(FaUsers)`
-  ${iconStyle};
-`;
-export const UtensilsIcon = styled(FaUtensils)`
-  ${iconStyle};
-`;
+
+
 
 export const ServicesContainer = styled.section`
   ${flexColum};

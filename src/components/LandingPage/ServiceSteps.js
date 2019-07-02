@@ -4,10 +4,8 @@ import {
   Services,
   Service,
   ToggleBtn,
-  SuitCaseIcon,
-  UsersIcon,
-  UtensilsIcon,
-  LeafIcon
+  HandsFa
+  
 } from "./ServiceStyles";
 import { H2 } from "../../components/generalStyles/reusables";
 
@@ -35,7 +33,7 @@ export default function services() {
           <article>
             <h3>
               <span>
-                <SuitCaseIcon />{" "}
+                <HandsFa />{" "}
               </span>
               Step 1
             </h3>
@@ -57,7 +55,7 @@ export default function services() {
           <article>
             <h3>
               <span>
-                <LeafIcon />{" "}
+                <HandsFa />{" "}
               </span>
               Step 2
             </h3>
@@ -79,7 +77,7 @@ export default function services() {
           <article>
             <h3>
               <span>
-                <UtensilsIcon />{" "}
+                <HandsFa />{" "}
               </span>
               Step 3
             </h3>
@@ -101,7 +99,7 @@ export default function services() {
           <article>
             <h3>
               <span>
-                <UsersIcon />{" "}
+                <HandsFa />{" "}
               </span>
               Step 4
             </h3>
