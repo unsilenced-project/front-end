@@ -1,4 +1,4 @@
-import axiosWithAuth from "../../utils/axiosConfig";
+import axiosWithAuth from "./axiosConfig";
 import * as types from "./userTypes";
 
 const baseURL = "https://unsilenced.herokuapp.com/users";
@@ -21,12 +21,12 @@ export const getUserById = id => dispatch => {
   axiosWithAuth()
     .get(`${baseURL}/${id}`)
     .then(res => {
-      debugger;
+      dispatch({ type: types.GET_USER_BY_ID_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      debugger;
+      dispatch({ type: types.GET_USER_BY_ID_FAIL, payload: err.message });
     })
-    .finnaly(() => {
+    .finally(() => {
       dispatch(stopLoading());
     });
 };

@@ -3,43 +3,53 @@ import Navigation from "../Navigation/Navigation";
 import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
+import { getUserById } from "../../actions/userActions";
 
-const Settings = ({ userData }) => {
-  const [username, setUsername] = useState("");
+const Settings = props => {
+  const [usernameData, setUsername] = useState("");
+  const [user, setUser] = useState([]);
 
-  const handleClick = () => inputRef.current.focus();
-  const inputRef = createRef();
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    props.getUserById(userId);
+  }, []);
 
-  console.log("User DATA:  ", userData);
-
-  console.log(username);
+  console.log(props.currentUser);
+  const {
+    username,
+    email,
+    channel_link,
+    channel_name,
+    img_link,
+    disqus_name
+  } = props.currentUser;
   return (
     <div>
       <Navigation />
       <FormContainer>
         <Input
           content="Username"
-          placeholder="test"
+          placeholder={username}
           handleChange={e => setUsername(e.target.value)}
         />
         <Input
           content="Email"
-          placeholder="test"
+          placeholder={email}
           handleChange={e => setUsername(e.target.value)}
         />
         <Input
           content="Channel Link"
-          placeholder="test"
+          placeholder={channel_link}
           handleChange={e => setUsername(e.target.value)}
         />
         <Input
           content="Channel Name"
-          placeholder="test"
+          placeholder={channel_name}
           handleChange={e => setUsername(e.target.value)}
         />
         <Input
           content="Disqus Name"
-          placeholder="test"
+          placeholder={disqus_name}
           handleChange={e => setUsername(e.target.value)}
         />
 
@@ -48,16 +58,11 @@ const Settings = ({ userData }) => {
         <PasswordField>
           <Input
             content="Password"
-            placeholder="test"
+            placeholder="new password"
             handleChange={e => setUsername(e.target.value)}
           />
           <Input
-            content="Comfirm Passwoord"
-            placeholder="test"
-            handleChange={e => setUsername(e.target.value)}
-          />
-          <Input
-            content="New Passwoord"
+            content="Comfirm new Passwoord"
             placeholder="test"
             handleChange={e => setUsername(e.target.value)}
           />
@@ -70,11 +75,18 @@ const Settings = ({ userData }) => {
 
 const mapStateToProps = state => {
   return {
-    userData: state.user.userData
+    currentUser: state.userData.userData
   };
 };
 
-export default connect(mapStateToProps)(Settings);
+const mapDispatchToProps = {
+  getUserById
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Settings);
 
 const FormContainer = styled.div`
   display: flex;
@@ -82,7 +94,7 @@ const FormContainer = styled.div`
   margin-top: 100px;
   button {
     width: 20%;
-    margin: 0 auto;
+    margin: 20px auto;
   }
 `;
 
@@ -91,10 +103,10 @@ const PasswordField = styled.div`
   padding: 20px;
   margin-top: 10px;
   flex-direction: column;
-  border: 1px solid black;
+  border-top: 0.4px solid grey;
 
   button {
     width: 20%;
-    margin: 0 auto;
+    margin: 20px auto;
   }
 `;

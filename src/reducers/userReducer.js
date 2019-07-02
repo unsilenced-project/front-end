@@ -1,6 +1,6 @@
 import * as types from "../actions/userTypes";
 
-initialState = {
+const initialState = {
   userData: [],
   loading: false,
   error: null
