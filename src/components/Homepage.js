@@ -5,11 +5,12 @@ import Mission from "./LandingPage/Mission";
 import Steps from "./LandingPage/ServiceSteps";
 import UserTestimonials from "./LandingPage/UserTestimonials";
 import Navigation from "./Navigation/Navigation";
+import Footer from "./Footer/Footer";
 
 const Homepage = () => {
   return (
     <div>
-      <div style={{ marginTop: 70 }}>
+      {/* <div style={{ marginTop: 70 }}>
         <a href="/unsilenced/c6rkYrwudww">Sample Video and Comments</a>
         <br />
         <a href="/login">Login</a>
@@ -17,14 +18,15 @@ const Homepage = () => {
         <a href="/register">Register</a>
         <br />
         <a href="/dashbord">Dashboard</a>
-      </div>
+      </div> */}
 
-      <div>
+      <section style={{ marginTop: 80 }}>
         <Navigation />
         <Mission />
         <Steps />
         <UserTestimonials />
-      </div>
+        <Footer />
+      </section>
     </div>
   );
 };

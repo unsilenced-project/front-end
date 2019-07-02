@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Bounce from "react-reveal/Bounce";
 import { Message } from "semantic-ui-react";
 import Navigation from "../Navigation/Navigation";
+import Footer from "../Footer/Footer";
 
 const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
@@ -96,6 +97,7 @@ const Dashboard = () => {
           </Bounce>
         )}
       </LinkWrapper>
+      <Footer />
     </EntryWrap>
   );
 };
@@ -107,7 +109,8 @@ const EntryWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 50px;
+  height: 100vh;
 `;
 
 const Title = styled.div`

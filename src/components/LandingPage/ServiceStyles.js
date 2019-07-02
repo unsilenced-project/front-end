@@ -77,7 +77,7 @@ export const Service = styled.div`
       position: relative;
       margin: 1em auto;
       width: 100%;
-      max-height: 100px;
+      max-height: 200px;
       font-size: 1.2rem;
       overflow: hidden;
       -webkit-transition: max-height 0.5s ease;
@@ -89,20 +89,20 @@ export const Service = styled.div`
     }
   }
 `;
-export const ToggleBtn = styled.a`
-  font-size: 1.3rem;
-  padding: 0.8rem 1rem;
-  width: 100px;
-  border: 2px solid ${primary_color};
-  background: white;
-  border-radius: 6px;
-  color: ${primary_color};
-  text-decoration: none;
-  transition: all 1s;
-  &:hover {
-    text-decoration: none;
-    width: 150px;
-    background: ${primary_color};
-    color: white;
-  }
-`;
+// export const ToggleBtn = styled.a`
+//   font-size: 1.3rem;
+//   padding: 0.8rem 1rem;
+//   width: 100px;
+//   border: 2px solid ${primary_color};
+//   background: white;
+//   border-radius: 6px;
+//   color: ${primary_color};
+//   text-decoration: none;
+//   transition: all 1s;
+//   &:hover {
+//     text-decoration: none;
+//     width: 150px;
+//     background: ${primary_color};
+//     color: white;
+//   }
+// `;

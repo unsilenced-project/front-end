@@ -39,7 +39,7 @@ const Navigation = props => {
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
               <Button
                 inverted
-                color="purple"
+                color="red"
                 onClick={logout}
                 style={{ marginLeft: 20 }}
               >

@@ -3,6 +3,8 @@ import "styled-components/macro";
 import styled from "styled-components";
 import Navigation from "../Navigation/Navigation";
 import sorin from "../../assets/sorin.jpg";
+import michael from "../../assets/michael.jpeg";
+import Footer from "../Footer/Footer";
 
 import {
   FacebookIcon,
@@ -28,14 +30,14 @@ export default function AboutPage() {
         </Article>
         <Content>
           <Profile>
-            <Card bgImage="sdsds" />
+            <Card bgImage={michael} />
             <h2>Michael Hart</h2>
             <SocialLinksWrapper>
-              <a href="">
+              <a href="https://www.linkedin.com/in/michael-hart-dev/">
                 <LinkedinIcon />
               </a>
 
-              <a href="">
+              <a href="https://github.com/fromthehart">
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
@@ -44,17 +46,18 @@ export default function AboutPage() {
             <Card bgImage={sorin} />
             <h2>Sorin Chis</h2>
             <SocialLinksWrapper>
-              <a href="">
+              <a href="https://www.linkedin.com/in/chis-sorin-993940130/">
                 <LinkedinIcon />
               </a>
 
-              <a href="">
+              <a href="https://github.com/SorinC6">
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
           </Profile>
         </Content>
       </Section>
+      <Footer />
     </Container>
   );
 }

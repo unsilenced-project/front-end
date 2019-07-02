@@ -21,6 +21,7 @@ const YoutubeVideo = ({ youtubeId }) => {
         paddingTop: 25,
         marginLeft: 20,
         marginRight: 20,
+        marginTop: 100,
         height: 0
       }}
     >

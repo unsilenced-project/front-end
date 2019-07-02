@@ -16,7 +16,9 @@ export default function Mission() {
           remaining essentially unchanged. It was popularised in the 1960s with
           the release of Letraset sheet
         </p>
-        <GetStarted to="/login">Get Started</GetStarted>
+        <GetStarted to={localStorage.getItem("token") ? "/dashbord" : "/login"}>
+          Get Started
+        </GetStarted>
       </Article>
     </MissionContainer>
   );

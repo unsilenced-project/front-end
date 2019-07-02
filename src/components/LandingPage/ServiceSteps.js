@@ -5,26 +5,26 @@ import {
   Service,
   ToggleBtn,
   HandsFa
-  
 } from "./ServiceStyles";
 import { H2 } from "../../components/generalStyles/reusables";
 
 export default function services() {
-  const toggleParagragh = e => {
-    e.preventDefault();
-    const btn = e.target;
-    const el = btn.parentElement.querySelector("p");
-    const height = getComputedStyle(el).getPropertyValue("max-height");
-    if (height === "100px") {
-      el.classList.add("show-all");
-      btn.textContent = "Less...";
-      btn.setAttribute("aria-expanded", true);
-    } else {
-      el.classList.remove("show-all");
-      btn.textContent = "More...";
-      btn.setAttribute("aria-expanded", false);
-    }
-  };
+  // const toggleParagragh = e => {
+  //   e.preventDefault();
+  //   const btn = e.target;
+  //   const el = btn.parentElement.querySelector("p");
+  //   const height = getComputedStyle(el).getPropertyValue("max-height");
+  //   if (height === "100px") {
+  //     el.classList.add("show-all");
+  //     btn.textContent = "Less...";
+  //     btn.setAttribute("aria-expanded", true);
+  //   } else {
+  //     el.classList.remove("show-all");
+  //     btn.textContent = "More...";
+  //     btn.setAttribute("aria-expanded", false);
+  //   }
+  // };
+  
   return (
     <ServicesContainer>
       <H2>Our Core Services</H2>
@@ -44,7 +44,8 @@ export default function services() {
               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
               reprehenderit in voluptate velit esse cillum dolore eu fugiat
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              zjzjz"
             </p>
             {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
@@ -68,9 +69,9 @@ export default function services() {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
-            <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
+            {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
-            </ToggleBtn>
+            </ToggleBtn> */}
           </article>
         </Service>
         <Service>
@@ -90,9 +91,9 @@ export default function services() {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
-            <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
+            {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
-            </ToggleBtn>
+            </ToggleBtn> */}
           </article>
         </Service>
         <Service>
@@ -111,9 +112,9 @@ export default function services() {
               Cooperative program have more opportunities to more loans and
               assistance within the cooperative society.
             </p>
-            <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
+            {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
-            </ToggleBtn>
+            </ToggleBtn> */}
           </article>
         </Service>
       </Services>
