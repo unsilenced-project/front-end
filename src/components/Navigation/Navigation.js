@@ -2,14 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
-export default function Navigation() {
+const Navigation = props => {
   // const [isOpen, setState] = useState(false);
 
   // const toggleNav = () => {
   //   setState(prevState => !prevState);
   // };
+
+  const logout = () => {
+    localStorage.clear();
+    props.history.push("/");
+  };
 
   return (
     <NavContainer>
@@ -26,7 +31,7 @@ export default function Navigation() {
           {localStorage.getItem("token") && (
             <SettingsWrapper>
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
-              <button>Logout</button>
+              <button onClick={logout}>Logout</button>
             </SettingsWrapper>
           )}
         </NavItems>
@@ -34,7 +39,9 @@ export default function Navigation() {
       </NavContent>
     </NavContainer>
   );
-}
+};
+
+export default withRouter(Navigation);
 
 const NavContainer = styled.div`
   position: fixed;
