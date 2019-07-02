@@ -14,6 +14,7 @@ const initialState = {
   loading: true,
   loggingIn: false,
   creating: false,
+  userData: [],
   token: localStorage.getItem("token")
 };
 
@@ -32,6 +33,7 @@ export default (state = initialState, action) => {
         ...state,
         loggingIn: false,
         token: action.payload,
+        userData: action.payloadWithAllUserData,
         error: null
       };
     case LOGIN_ERROR:

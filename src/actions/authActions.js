@@ -15,7 +15,11 @@ export const login = creds => dispatch => {
     .post("https://unsilenced.herokuapp.com/login", creds)
     .then(response => {
       console.log("login response", response);
-      dispatch({ type: LOGIN_SUCCESS, payload: response.data.token });
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: response.data.token,
+        payloadWithAllUserData: response.data
+      });
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", creds.username);
     })
