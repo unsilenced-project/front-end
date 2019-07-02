@@ -9,6 +9,7 @@ import "./App.css";
 import Dashboard from "./components/Dashboard/Dashbord";
 import PrivateRoute from "./components/PrivateRoute";
 import Settings from "./components/Settings/Settings";
+import About from "./components/About/About";
 
 class App extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
             <Route exact path="/" component={Homepage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={CreateAccount} />
+            <Route path="/about" component={About} />
 
             <PrivateRoute path="/dashbord" component={Dashboard} />
             <PrivateRoute path="/settings" component={Settings} />

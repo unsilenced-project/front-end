@@ -33,7 +33,7 @@ const Navigation = props => {
           <NavLinkWrap exact to="/">
             Home
           </NavLinkWrap>
-          <NavLinkWrap to="/about-us">About</NavLinkWrap>
+          <NavLinkWrap to="/about">About</NavLinkWrap>
           {localStorage.getItem("token") && (
             <SettingsWrapper>
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
@@ -74,10 +74,12 @@ const Navigation = props => {
             Home
           </Menu.Item>
         </Link>
-        <Menu.Item as="a" style={{ marginBottom: 50 }}>
-          <Icon name="user md" />
-          About
-        </Menu.Item>
+        <Link to="/settings">
+          <Menu.Item as="a" style={{ marginBottom: 50 }}>
+            <Icon name="user md" />
+            About
+          </Menu.Item>
+        </Link>
         <Link to="/settings">
           <Menu.Item as="div" style={{ marginBottom: 50 }}>
             <Icon name="settings" />
