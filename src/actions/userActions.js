@@ -37,11 +37,9 @@ export const updateUser = (id, userData) => dispatch => {
   axiosWithAuth()
     .put(`${baseURL}/${id}`, userData)
     .then(res => {
-      debugger;
       dispatch({ type: types.UPDATE_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      debugger;
       dispatch({ type: types.UPDATE_USER_FAIL, payload: err.message });
     })
     .finally(() => {

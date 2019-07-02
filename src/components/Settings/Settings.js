@@ -42,9 +42,12 @@ const Settings = props => {
   };
 
   const changePassword = () => {
+    const userId = localStorage.getItem("userId");
+
     setError("");
     if (passwrdData === newPassword) {
-      alert("passwrd");
+      alert(passwrdData);
+      props.updateUser(userId, { password: passwrdData });
     } else {
       setError("Please provide the same password in the fields");
     }
@@ -101,12 +104,14 @@ const Settings = props => {
             placeholder="new password"
             handleChange={e => setPasswordData(e.target.value)}
             loading={props.loading}
+            type="password"
           />
           <Input
             content="Comfirm new Passwoord"
             placeholder="test"
             handleChange={e => setNewPassword(e.target.value)}
             loading={props.loading}
+            type="password"
           />
           <CostumButton positive onClick={changePassword}>
             Change Password
@@ -141,8 +146,9 @@ const FormContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 100px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 const PasswordField = styled.div`
@@ -153,7 +159,6 @@ const PasswordField = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 0.4px solid grey;
 `;
 
 const CostumButton = styled(Button)`
