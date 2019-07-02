@@ -21,11 +21,12 @@ export default (state = initialState, action) => {
         error: null,
         userData: action.payload
       };
+    case types.UPDATE_USER_SUCCESS:
+      return {};
     case types.STOP_LOADING:
       return {
         ...state,
-        loading: false,
-        error: action.payload
+        loading: false
       };
     default:
       return state;

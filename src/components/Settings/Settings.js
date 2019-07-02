@@ -3,11 +3,17 @@ import Navigation from "../Navigation/Navigation";
 import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
-import { getUserById } from "../../actions/userActions";
+import { getUserById, updateUser } from "../../actions/userActions";
 import { Button } from "semantic-ui-react";
 
 const Settings = props => {
-  const [usernameData, setUsername] = useState("");
+  const [usernameData, setUsernameData] = useState("");
+  const [emailData, setEmailData] = useState("");
+  const [ChannelName, setChannelName] = useState("");
+  const [ChannelLink, setChannelLink] = useState("");
+  const [DisqusName, setDisqusName] = useState("");
+  const [passwrdData, setPasswordData] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [user, setUser] = useState([]);
 
   useEffect(() => {
@@ -31,31 +37,31 @@ const Settings = props => {
         <Input
           content="Username"
           placeholder={username}
-          handleChange={e => setUsername(e.target.value)}
+          handleChange={e => setUsernameData(e.target.value)}
           loading={props.loading}
         />
         <Input
           content="Email"
           placeholder={email}
-          handleChange={e => setUsername(e.target.value)}
+          handleChange={e => setEmailData(e.target.value)}
           loading={props.loading}
         />
         <Input
           content="Channel Link"
           placeholder={channel_link}
-          handleChange={e => setUsername(e.target.value)}
+          handleChange={e => setChannelLink(e.target.value)}
           loading={props.loading}
         />
         <Input
           content="Channel Name"
           placeholder={channel_name}
-          handleChange={e => setUsername(e.target.value)}
+          handleChange={e => setChannelName(e.target.value)}
           loading={props.loading}
         />
         <Input
           content="Disqus Name"
           placeholder={disqus_name}
-          handleChange={e => setUsername(e.target.value)}
+          handleChange={e => setDisqusName(e.target.value)}
           loading={props.loading}
         />
         <CostumButton positive>Update</CostumButton>
@@ -64,13 +70,13 @@ const Settings = props => {
           <Input
             content="Password"
             placeholder="new password"
-            handleChange={e => setUsername(e.target.value)}
+            handleChange={e => setPasswordData(e.target.value)}
             loading={props.loading}
           />
           <Input
             content="Comfirm new Passwoord"
             placeholder="test"
-            handleChange={e => setUsername(e.target.value)}
+            handleChange={e => setNewPassword(e.target.value)}
             loading={props.loading}
           />
           <CostumButton positive>Change Password</CostumButton>
