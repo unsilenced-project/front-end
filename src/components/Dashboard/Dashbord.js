@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Bounce from "react-reveal/Bounce";
 import { Message } from "semantic-ui-react";
+import Navigation from "../Navigation/Navigation";
 
 const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
@@ -64,13 +65,7 @@ const Dashboard = () => {
 
   return (
     <EntryWrap>
-      <Wrapper>
-        <h1>We are here to Help</h1>
-        <h2>
-          Paste your youtube link here and start your comments experience with
-          us
-        </h2>
-      </Wrapper>
+      <Navigation />
       <Title>
         <>UNSILENCED</>
       </Title>
@@ -112,18 +107,7 @@ const EntryWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const Wrapper = styled.div`
-  width: 100%;
-  background-color: #85144b;
-  color: lightslategray;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin-bottom: 30px;
+  margin-top: 80px;
 `;
 
 const Title = styled.div`
