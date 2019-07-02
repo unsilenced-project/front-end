@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { NavLink } from "react-router-dom";
 
 export default function Navigation() {
-  const [isOpen, setState] = useState(false);
+  // const [isOpen, setState] = useState(false);
 
-  const toggleNav = () => {
-    setState(prevState => !prevState);
-  };
+  // const toggleNav = () => {
+  //   setState(prevState => !prevState);
+  // };
 
   return (
     <NavContainer>
@@ -23,8 +23,11 @@ export default function Navigation() {
             Home
           </NavLinkWrap>
           <NavLinkWrap to="/about-us">About</NavLinkWrap>
+          {localStorage.getItem("token") && (
+            <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+          )}
         </NavItems>
-        <Hamburger onClick={toggleNav} />
+        <Hamburger />
       </NavContent>
     </NavContainer>
   );
@@ -45,7 +48,6 @@ const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
-  border: 1px solid black;
   /* @media (max-width: 500px) {
     display: flex;
     flex-direction: column;
@@ -71,6 +73,7 @@ export const Hamburger = styled(FaBars)`
 const Logo = styled.div`
   img {
     width: 100px;
+    border-radius: 30%;
   }
 `;
 
@@ -79,15 +82,18 @@ const NavItems = styled.div`
 `;
 
 const NavLinkWrap = styled(NavLink)`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  color: darkred;
   padding: 1.1rem 1rem;
-  line-height: 1.5;
+  outline: none;
   text-transform: uppercase;
   text-decoration: none;
+  outline: none;
   &:hover,
   &.active {
     border-bottom: 4px solid darkred;
     color: green;
+    text-decoration: none;
   }
 `;
 
