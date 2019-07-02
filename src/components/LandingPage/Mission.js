@@ -55,13 +55,13 @@ const Article = styled.article`
     line-height: 1.5;
     text-align: justify;
     padding-top: 2rem;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   h2 {
     position: relative;
     padding-bottom: 2rem;
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: bold;
     &::after {
       content: " ";

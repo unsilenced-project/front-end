@@ -11,19 +11,8 @@ import {
 } from "../../components/generalStyles/reusables";
 import { FaComment } from "react-icons/fa";
 
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
 const iconStyle = css`
   color: ${primary_color};
-  &:hover {
-    animation: ${rotate360} 0.2s;
-  }
 `;
 
 export const HandsFa = styled(FaComment)`
@@ -34,7 +23,7 @@ export const ServicesContainer = styled.section`
   ${flexColum};
   width: 100%;
   margin: auto;
-  padding: 4rem 0;
+  padding: 3rem 0;
   background-color: ${white_color};
 `;
 
@@ -48,21 +37,22 @@ export const Services = styled.div`
   flex-wrap: wrap;
   @media (max-width: 500px) {
     width: 100%;
-    padding: 2rem;
+    padding: 1.5rem;
   }
 `;
 
 export const Service = styled.div`
   width: 46%;
-  padding: 2rem;
+  padding: 1rem;
   ${mobileWidth};
+  transition: all 1s;
   article {
     ${flexColum};
     width: 100%;
     h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: ${black_color};
-      padding: 0.8rem;
+      padding-top: 0.7rem;
       text-align: center;
       position: relative;
       padding-bottom: 1rem;
@@ -83,12 +73,12 @@ export const Service = styled.div`
       }
     }
     p {
-      line-height: 2;
+      line-height: 1.3;
       position: relative;
-      margin: 2em auto;
+      margin: 1em auto;
       width: 100%;
       max-height: 100px;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       overflow: hidden;
       -webkit-transition: max-height 0.5s ease;
       transition: max-height 0.5s ease;
@@ -100,18 +90,19 @@ export const Service = styled.div`
   }
 `;
 export const ToggleBtn = styled.a`
-  font-size: 2rem;
+  font-size: 1.3rem;
   padding: 0.8rem 1rem;
+  width: 100px;
   border: 2px solid ${primary_color};
   background: white;
   border-radius: 6px;
   color: ${primary_color};
-  ${transition};
   text-decoration: none;
+  transition: all 1s;
   &:hover {
-    border: 2px solid ${primary_color};
+    text-decoration: none;
+    width: 150px;
     background: ${primary_color};
     color: white;
-    ${transition};
   }
 `;

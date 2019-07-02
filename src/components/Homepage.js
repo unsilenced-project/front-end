@@ -3,6 +3,7 @@ import { Menu, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mission from "./LandingPage/Mission";
 import Steps from "./LandingPage/ServiceSteps";
+import UserTestimonials from "./LandingPage/UserTestimonials";
 
 const Homepage = () => {
   return (
@@ -20,6 +21,7 @@ const Homepage = () => {
       <div>
         <Mission />
         <Steps />
+        <UserTestimonials />
       </div>
     </div>
   );

@@ -46,9 +46,9 @@ export default function services() {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum."
             </p>
-            <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
+            {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
-            </ToggleBtn>
+            </ToggleBtn> */}
           </article>
         </Service>
         <Service>
