@@ -133,6 +133,10 @@ const ButtonWrapper = styled.div`
   align-items: center;
 
   button {
+    outline: none;
+  }
+
+  button {
     padding: 20px 100px;
     border-radius: 20%;
     max-width: 400px;
