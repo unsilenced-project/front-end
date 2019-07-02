@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Mission() {
   return (
@@ -15,7 +16,7 @@ export default function Mission() {
           remaining essentially unchanged. It was popularised in the 1960s with
           the release of Letraset sheet
         </p>
-        <GetStarted>Learn More</GetStarted>
+        <GetStarted to="/login">Get Started</GetStarted>
       </Article>
     </MissionContainer>
   );
@@ -79,7 +80,7 @@ const Article = styled.article`
   }
 `;
 
-const GetStarted = styled.button`
+const GetStarted = styled(Link)`
   margin-top: 4rem;
   width: 280px;
   height: 57px;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
 import { Spin, Alert, Form, Icon, Input, Button } from "antd";
+import Navigation from "./Navigation/Navigation";
 import "antd/dist/antd.css";
 import "./Login.scss";
 
@@ -44,6 +45,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-wrapper">
+        <Navigation />
         <div className="login-layout">
           <h2 className="login-heading">Log in</h2>
           <Form onSubmit={this.login} className="login-form">
