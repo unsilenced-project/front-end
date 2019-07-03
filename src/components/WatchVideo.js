@@ -29,7 +29,11 @@ const WatchVideo = props => {
   };
 
   const handleYoutubePusher = () => {
-    window.location.href = localStorage.getItem("youtube");
+    //window.location.href = localStorage.getItem("youtube");
+    window.open(
+      localStorage.getItem("youtube"),
+      "_blank" // <- This is what makes it open in a new window.
+    );
   };
 
   const reactModal = () => {
