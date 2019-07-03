@@ -114,12 +114,13 @@ export default function services() {
                 Step 4
               </h3>
               <p>
-                Multitude they say is strength, at Tieme Ndo, we believe in the
-                power of numbers. Hence, we have designed a formidable structure
-                which enables the farmers to leverage on the power of numbers
-                through our farmers' cooperative society. Farmers who enrol in
-                the Cooperative program have more opportunities to more loans
-                and assistance within the cooperative society.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
               {/* <ToggleBtn href="#" aria-expanded="false" onClick={toggleParagragh}>
               More...
