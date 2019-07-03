@@ -6,12 +6,15 @@ import Bounce from "react-reveal/Bounce";
 import { Message } from "semantic-ui-react";
 import Navigation from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
   const [currentUser, setCurrentUser] = useState(
-    `${localStorage.getItem("disqusShortname")}/` || ""
+    `${localStorage.getItem("disqusShortname")}/`
   );
+  const [copied, setCopied] = useState(false);
+  if (currentUser === "null/") setCurrentUser("");
   const [unsilencedPath, setUnsilencedPath] = useState("");
   const [showLinkButton, setShowLinkButton] = useState(false);
   const [error, setError] = useState("");
@@ -85,9 +88,19 @@ const Dashboard = () => {
       <LinkWrapper>
         {showLinkButton && (
           <Bounce>
-            <Link to={`${unsilencedPath}`}>
-              <Message>http://unsilenced.space/{unsilencedPath}</Message>
-            </Link>
+            <Message>https://unsilenced.space/{unsilencedPath}</Message>
+            <CopyToClipboard
+              text={`https://unsilenced.space/${unsilencedPath}`}
+              onCopy={() => setCopied(true)}
+            >
+              {!copied ? (
+                <ButtonWrapper>
+                  <button>Copy to Clipboard</button>
+                </ButtonWrapper>
+              ) : (
+                <h3>Copied! Now paste into the description of your video.</h3>
+              )}
+            </CopyToClipboard>
           </Bounce>
         )}
 
@@ -179,6 +192,14 @@ const LinkWrapper = styled.div`
   outline: none;
   text-decoration: none;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    margin-top: 10px;
+  }
 
   a {
     color: red;
