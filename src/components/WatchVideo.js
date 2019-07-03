@@ -7,6 +7,7 @@ import Footer from "./Footer/Footer";
 import styled from "styled-components";
 
 const WatchVideo = props => {
+  const [userName, setUsername] = useState(localStorage.getItem("username"));
   const [modalOpen, setModalOpen] = useState(false);
   let { username, videoID } = props.match.params;
   let disqusShortname = props.default ? "unsilenced" : username;
@@ -24,7 +25,6 @@ const WatchVideo = props => {
   };
 
   const handleLike = () => {
-    const user = localStorage.getItem("username");
     setModalOpen(true);
   };
 
@@ -76,6 +76,9 @@ const WatchVideo = props => {
           corner="bottom =left"
           onClick={handleLike}
         />
+        <p>
+          Username: <span>{userName}</span>
+        </p>
       </ButtonContainer>
       <DisqusEmbed
         disqusShortname={disqusShortname}
@@ -91,8 +94,6 @@ const WatchVideo = props => {
 export default WatchVideo;
 
 const LikeButton = styled(Icon)`
-  position: absolute;
-
   &:hover {
     color: darkred;
   }
@@ -102,9 +103,20 @@ const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   padding-top: 30px;
   margin-left: 30px;
   cursor: pointer;
+
+  p {
+    margin-left: 20px;
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  span {
+    font-weight: bold;
+  }
 `;
 
 const ModalContent = styled.div`
