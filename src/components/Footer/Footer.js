@@ -17,6 +17,7 @@ export default Navigation;
 
 const NavContainer = styled.div`
   z-index: 1000;
+
   bottom: 0;
   left: 0;
   width: 100%;
