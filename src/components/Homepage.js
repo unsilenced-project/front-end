@@ -10,7 +10,7 @@ import Navigation from "./Navigation/Navigation";
 import Footer from "./Footer/Footer";
 
 const Homepage = props => {
-  if (localStorage.getItem("token")) props.history.push("/dashboard");
+  // if (localStorage.getItem("token")) props.history.push("/dashboard");
   return (
     <div>
       <section style={{ marginTop: 80 }}>
