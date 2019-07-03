@@ -69,11 +69,14 @@ export default function AboutPage() {
             <Card bgImage={michael} />
             <h2>Michael Hart</h2>
             <SocialLinksWrapper>
-              <a href="https://www.linkedin.com/in/michael-hart-dev/">
+              <a
+                href="https://www.linkedin.com/in/michael-hart-dev/"
+                target="_blank"
+              >
                 <LinkedinIcon />
               </a>
 
-              <a href="https://github.com/fromthehart">
+              <a href="https://github.com/fromthehart" target="_blank">
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
@@ -82,10 +85,13 @@ export default function AboutPage() {
             <Card bgImage={sorin} />
             <h2>Sorin Chis</h2>
             <SocialLinksWrapper>
-              <a href="https://www.linkedin.com/in/chis-sorin-993940130/">
+              <a
+                href="https://www.linkedin.com/in/chis-sorin-993940130/"
+                target="_blank"
+              >
                 <LinkedinIcon />
               </a>
-              <a href="https://github.com/SorinC6">
+              <a href="https://github.com/SorinC6" target="_blank">
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
