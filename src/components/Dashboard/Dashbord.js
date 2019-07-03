@@ -122,7 +122,6 @@ const EntryWrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
   height: 100vh;
   background: #f0f8ff;
 `;
@@ -133,6 +132,8 @@ const Title = styled.div`
   font-size: 50px;
   letter-spacing: 20px;
   padding: 40px;
+  margin-top: 100px;
+  padding-top: 100px;
 `;
 
 const InputWrapper = styled.div``;
