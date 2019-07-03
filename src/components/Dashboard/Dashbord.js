@@ -86,7 +86,7 @@ const Dashboard = () => {
         {showLinkButton && (
           <Bounce>
             <Link to={`${unsilencedPath}`}>
-              <Message>https://unsilenced/{unsilencedPath}</Message>
+              <Message>http://unsilenced.space/{unsilencedPath}</Message>
             </Link>
           </Bounce>
         )}
