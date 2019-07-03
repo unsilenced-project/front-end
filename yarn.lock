@@ -9655,6 +9655,11 @@ react-scripts@3.0.1:
   optionalDependencies:
     fsevents "2.0.6"
 
+react-scroll-component@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/react-scroll-component/-/react-scroll-component-0.6.3.tgz#de756c1a9b2803092abade637ed1e7dcbe93c0fa"
+  integrity sha512-MmRc+0v0/myatn7FLqk4cTOP7w91g6F+8oCqx2fJwzsCD3tfEk8uMJ7sr5sdOt5+RG+EOspW39Glo8FhGcxzIQ==
+
 react-scroll-to-component@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-scroll-to-component/-/react-scroll-to-component-1.0.2.tgz#f260dc936c62a53e772786d7832fe0884e195354"

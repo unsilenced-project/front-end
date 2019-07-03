@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
 import { getUserById, updateUser } from "../../actions/userActions";
-import { Button, Message } from "semantic-ui-react";
+import { Button, Message, Segment } from "semantic-ui-react";
 
 const Settings = props => {
   const [usernameData, setUsernameData] = useState(props.currentUser.username);
@@ -52,6 +52,7 @@ const Settings = props => {
       setError("Please provide the same password in the fields");
     }
   };
+
   const {
     username,
     email,
@@ -119,6 +120,11 @@ const Settings = props => {
 
           {error && <Message>{error}</Message>}
         </PasswordField>
+        <DisqusButton inverted color="green" size="large">
+          <a href="/disqus" target="_blank">
+            DISQUS STEP BY STEP INSTRUCTIONS
+          </a>
+        </DisqusButton>
       </FormContainer>
     </div>
   );
@@ -164,4 +170,12 @@ const PasswordField = styled.div`
 const CostumButton = styled(Button)`
   width: 350px;
   margin: 20px auto;
+`;
+
+const DisqusButton = styled(Button)`
+  padding: 20px;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 `;
