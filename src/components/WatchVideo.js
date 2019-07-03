@@ -38,34 +38,34 @@ const WatchVideo = props => {
 
   const reactModal = () => {
     return (
-      <Modal
-        size="big"
-        open={modalOpen}
-        className="modal"
-        centered="true"
-        onClose={closeModal}
-      >
-        <Modal.Header>Restriction</Modal.Header>
-        <Modal.Content>
-          <h6>
-            Due to restrictions placed by Youtube, the video must be opened in a
-            new window to use the like button
-          </h6>
-          <p>Click AGREE to open the link in Youtube </p>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button negative onClick={() => setModalOpen(false)}>
-            No, Thanks
-          </Button>
-          <Button
-            positive
-            icon="checkmark"
-            labelPosition="right"
-            content="Take me to Youtube"
-            onClick={handleYoutubePusher}
-          />
-        </Modal.Actions>
-      </Modal>
+        <Modal
+          size="big"
+          open={modalOpen}
+          className="modal"
+          centered="true"
+          onClose={closeModal}
+        >
+          <Modal.Header>Restriction</Modal.Header>
+          <Modal.Content>
+            <h6>
+              Due to restrictions placed by Youtube, the video must be opened in
+              a new window to use the like button
+            </h6>
+            <p>Click AGREE to open the link in Youtube </p>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button negative onClick={() => setModalOpen(false)}>
+              No, Thanks
+            </Button>
+            <Button
+              positive
+              icon="checkmark"
+              labelPosition="right"
+              content="Take me to Youtube"
+              onClick={handleYoutubePusher}
+            />
+          </Modal.Actions>
+        </Modal>
     );
   };
 

@@ -86,6 +86,15 @@ const Navigation = props => {
             Settings
           </Menu.Item>
         </Link>
+
+        <Button
+          inverted
+          color="red"
+          onClick={logout}
+          style={{ marginLeft: 20 }}
+        >
+          Logout
+        </Button>
       </Sidebar>
     </NavContainer>
   );
