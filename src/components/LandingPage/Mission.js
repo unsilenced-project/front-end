@@ -37,7 +37,8 @@ const MissionContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: darkred;
+  background-color: ${props =>
+    props.background ? props.background : "darkred"};
   flex-wrap: nowrap;
   @media (max-width: 500px) {
     height: 700px;

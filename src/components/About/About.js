@@ -4,29 +4,65 @@ import styled from "styled-components";
 import Navigation from "../Navigation/Navigation";
 import sorin from "../../assets/sorin.jpg";
 import michael from "../../assets/michael.jpeg";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 
 import {
-  FacebookIcon,
-  TwitterIcon,
+  // FacebookIcon,
+  // TwitterIcon,
   LinkedinIcon,
   GitHubIcon
 } from "../generalStyles/reusables";
 
 export default function AboutPage() {
   return (
-    <Container>
-      <Navigation />
+    <Container id="about" background="white">
       <Section>
-        <Article>
-          <h1>Meet The Usilenced Team</h1>
+        <Article color="black">
+          <Title color="darkred">About Unsilenced</Title>
           <p>
-            While not ideal, We hope it will serve as a useful stopge measure
+            In an effort to protection children from inappropriate comments on
+            Youtube, Google disabled comments at mass scale on many accounts
+            featuring children in any fashion, even if those accounts were
+            well-moderated by adults. One of those channels was SBSK, Special
+            Books by Special Kids, which despite its name features interviews
+            with special people of all ages, of varying kinds and degrees of
+            disability, and relies on comments as a way for the public to show
+            their loving support and acceptance to those being interviewed and
+            their families and friends. Google refused to re-enable their
+            comments despite a massive petition with hundreds of thousands of
+            supporters, and a long history of SBSK showing careful moderation of
+            their comments. The people SBSK interviews were suddenly cut off
+            from the support they so much need.
+          </p>
+
+          <p>
+            The story has been the same for many positive channels on Youtube,
+            and Google has refused to provide a process for comments to be
+            restored.
+          </p>
+
+          <p>
+            Creators whose comments have been disabled will be able to enter
+            their Youtube video link in a form, and they will receive back a
+            special link to include in the description section of their Youtube
+            video. Clicking the link will take the user to Unsilenced where they
+            can watch the video while also having a comments section below to
+            interact with the video's creators, participants, and other viewers.
+            Moderation is optional and left up to the video creator to decide.
+            The comments section is kindly provided for free by Disqus.
+          </p>
+
+          <p>
+            This is a tool to unsilence the silenced, and re-enable the free and
+            easy discussion forum that these many good channels once enjoyed.
+            While not ideal, we hope it will serve as a useful stopgap measure
             until Google provides a way for creators to have comments
             re-enabled, and also to send a message that broad, overreaching
             attempts to counter bad behavior that affect more good people than
             bad will never be acceptable or tolerated.
           </p>
+
+          <Title color="darkred">Meet the Team</Title>
         </Article>
         <Content>
           <Profile>
@@ -49,7 +85,6 @@ export default function AboutPage() {
               <a href="https://www.linkedin.com/in/chis-sorin-993940130/">
                 <LinkedinIcon />
               </a>
-
               <a href="https://github.com/SorinC6">
                 <GitHubIcon />
               </a>
@@ -57,14 +92,28 @@ export default function AboutPage() {
           </Profile>
         </Content>
       </Section>
-      <Footer />
     </Container>
   );
 }
 
+const Title = styled.div`
+  @import url("https://fonts.googleapis.com/css?family=Monoton&display=swap");
+  font-family: "Monoton", cursive;
+  font-size: 3rem;
+  letter-spacing: 20px;
+  padding: 40px;
+  text-align: center;
+  word-break: break-word;
+  color: ${props => (props.color ? props.color : "white")};
+
+  @media (max-width: 1000px) {
+    font-size: 2rem;
+  }
+`;
+
 const Container = styled.div`
   font-family: "Work Sans", sans-serif;
-  background-color: darkred;
+  background=${props => (props.background ? props.background : "darkred")};
   color: white;
 
   @media (max-width: 500px) {
@@ -78,7 +127,7 @@ const Container = styled.div`
 
 const Section = styled.section`
   flex-wrap: nowrap;
-  padding: 4rem 2rem;
+  padding: 2rem;
   font-size: 16px;
 
   @media (max-width: 500px) {
@@ -88,7 +137,7 @@ const Section = styled.section`
 `;
 
 const Article = styled.article`
-  margin-bottom: 3rem;
+  padding: 2rem 4rem 0rem;
 
   h1 {
     padding-top: 70px;
@@ -97,7 +146,8 @@ const Article = styled.article`
     margin-top: 20px;
     line-height: 1.2;
     font-size: 16px;
-    text-align: center;
+    text-align: justify;
+    color: ${props => (props.color ? props.color : "darkred")};
     @media (max-width: 500px) {
       text-align: justify;
     }
@@ -114,10 +164,8 @@ const Content = styled.div`
 const Profile = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
   @media (max-width: 500px) {
     width: 100%;
-    margin: 3rem 0;
   }
 `;
 
