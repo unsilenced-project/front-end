@@ -89,7 +89,7 @@ const Dashboard = () => {
       <LinkWrapper>
         {showLinkButton && (
           <Bounce>
-            <Message>https://unsilenced.space/{unsilencedPath}</Message>
+            <Message compact>https://unsilenced.space/{unsilencedPath}</Message>
             <CopyToClipboard
               text={`https://unsilenced.space/${unsilencedPath}`}
               onCopy={() => setCopied(true)}
@@ -99,7 +99,7 @@ const Dashboard = () => {
                   <button>Copy to Clipboard</button>
                 </ButtonWrapper>
               ) : (
-                <h3>Copied! Now paste into the description of your video.</h3>
+                <H3>Copied! Now paste into the description of your video.</H3>
               )}
             </CopyToClipboard>
           </Bounce>
@@ -135,6 +135,10 @@ const Title = styled.div`
   padding: 40px;
   margin-top: 100px;
   padding-top: 100px;
+
+  @media (max-width: 500px) {
+    font-size: 22px;
+  }
 `;
 
 const InputWrapper = styled.div``;
@@ -144,15 +148,26 @@ const Input = styled(TextField)`
   height: 100px;
   padding: 400px;
   color: red;
+
+  @media (max-width: 500px) {
+    width: 200px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
   padding: 20px;
   display: flex;
   align-items: center;
+  outline: none;
 
   button {
     outline: none;
+    @media (max-width: 500px) {
+      width: 150px;
+      display: flex;
+      justify-content: center;
+      outline: none;
+    }
   }
 
   button {
@@ -180,11 +195,13 @@ const ButtonWrapper = styled.div`
       transform: scale(5);
       opacity: 0;
       transition: all 0.5s;
+      outline: none;
     }
     &:hover:before {
       transform: scale(1);
       opacity: 1;
       cursor: pointer;
+      outline: none;
     }
   }
 `;
@@ -199,6 +216,10 @@ const LinkWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+
   h3 {
     margin-top: 10px;
   }
@@ -209,5 +230,11 @@ const LinkWrapper = styled.div`
     &:hover {
       color: green;
     }
+  }
+`;
+
+const H3 = styled.h3`
+  @media (max-width: 500px) {
+    font-size: 20px;
   }
 `;
