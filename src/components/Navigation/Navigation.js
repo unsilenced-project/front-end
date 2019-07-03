@@ -23,9 +23,9 @@ const Navigation = props => {
   };
 
   return (
-    <NavContainer>
+    <NavContainer style={{ boxShadow: "0 0 5px rgba(0,0,0,0.5)" }}>
       <Logo>
-        <img src={logo} alt="logoo" />
+        <img src={logo} alt="Unsilenced logo" />
       </Logo>
 
       <NavContent>
@@ -159,7 +159,7 @@ const NavLinkWrap = styled(NavLink)`
   &:hover,
   &.active {
     border-bottom: 4px solid darkred;
-    color: green;
+    color: black;
     text-decoration: none;
   }
 `;

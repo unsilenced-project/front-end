@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer";
 const Dashboard = () => {
   const [inputLink, setInputLink] = useState("");
   const [currentUser, setCurrentUser] = useState(
-    localStorage.getItem("disqusShortname") || "testUser"
+    `${localStorage.getItem("disqusShortname")}/` || ""
   );
   const [unsilencedPath, setUnsilencedPath] = useState("");
   const [showLinkButton, setShowLinkButton] = useState(false);
@@ -60,7 +60,7 @@ const Dashboard = () => {
   const createUnsilencedPath = link => {
     setShowLinkButton(true);
     console.log(link);
-    const path = `${currentUser}/${link}`;
+    const path = `${currentUser}${link}`;
     setUnsilencedPath(path);
   };
 
@@ -86,7 +86,7 @@ const Dashboard = () => {
         {showLinkButton && (
           <Bounce>
             <Link to={`${unsilencedPath}`}>
-              <Message>https://unsilenced/{unsilencedPath}</Message>
+              <Message>http://unsilenced.space/{unsilencedPath}</Message>
             </Link>
           </Bounce>
         )}

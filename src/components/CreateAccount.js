@@ -93,8 +93,8 @@ class CreateAccount extends Component {
       password,
       channel_link,
       channel_name,
-      // img_link,
-      // disqus_name: "unsilenced",
+      img_link,
+      disqus_name: disqus_name.split(".")[0],
       social_links: JSON.stringify({
         patreon,
         twitter,
@@ -142,19 +142,6 @@ class CreateAccount extends Component {
                   value={this.state.channel_link}
                   onChange={this.handleChanges}
                   onBlur={() => this.youtubeUpdate(this.state.channel_link)}
-                />
-              </Form.Item>
-              <Form.Item className="form-item">
-                <Input
-                  required
-                  className="login-input"
-                  prefix={
-                    <Icon type="wechat" style={{ color: "rgba(0,0,0,.25)" }} />
-                  }
-                  name="disqus_name"
-                  placeholder="Disqus name *"
-                  value={this.state.disqus_name}
-                  onChange={this.handleChanges}
                 />
               </Form.Item>
               <Form.Item className="form-item">
@@ -254,6 +241,25 @@ class CreateAccount extends Component {
                   </Form.Item>
                 </Collapse.Panel>
               </Collapse>
+              <h3>Disqus Subdomain</h3>
+              <Form.Item className="form-item">
+                <Input
+                  className="login-input"
+                  prefix={
+                    <Icon type="wechat" style={{ color: "rgba(0,0,0,.25)" }} />
+                  }
+                  name="disqus_name"
+                  placeholder="Disqus subdomain"
+                  value={this.state.disqus_name}
+                  onChange={this.handleChanges}
+                />
+                <p style={{ margin: "5px auto 0" }}>
+                  Only needed if you want to moderate comments.
+                </p>
+                <a style={{ margin: "0" }} href="/disqus" target="_blank">
+                  STEP BY STEP INSTRUCTIONS
+                </a>
+              </Form.Item>
               <Form.Item>
                 {this.props.error && (
                   <Alert

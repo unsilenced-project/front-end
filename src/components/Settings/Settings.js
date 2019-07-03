@@ -107,8 +107,8 @@ const Settings = props => {
             type="password"
           />
           <Input
-            content="Comfirm new Passwoord"
-            placeholder="test"
+            content="Confirm new Passwoord"
+            placeholder="confirm new password"
             handleChange={e => setNewPassword(e.target.value)}
             loading={props.loading}
             type="password"

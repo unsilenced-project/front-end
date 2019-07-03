@@ -22,6 +22,8 @@ export const login = creds => dispatch => {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("username", creds.username);
       localStorage.setItem("userId", response.data.id);
+      if (response.data.disqusName)
+        localStorage.setItem("disqusShortname", response.data.disqusName);
     })
     .catch(error => {
       console.log("login error.message", error.response.data.message);
