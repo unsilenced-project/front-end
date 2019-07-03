@@ -7,10 +7,9 @@ import Footer from "./Footer/Footer";
 import styled from "styled-components";
 
 const WatchVideo = props => {
-  const [userName, setUsername] = useState(localStorage.getItem("username"));
   const [modalOpen, setModalOpen] = useState(false);
   let { username, videoID } = props.match.params;
-  console.log(videoID);
+  // console.log(videoID);
   let disqusShortname = props.default ? "unsilenced" : username;
 
   // console.log(props.location);
