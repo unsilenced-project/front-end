@@ -241,7 +241,17 @@ class CreateAccount extends Component {
                   </Form.Item>
                 </Collapse.Panel>
               </Collapse>
-              <h3>Disqus Subdomain</h3>
+              <h3>Comment Moderation</h3>
+              <p>
+                If you want to moderate your comments, a quick, easy and free
+                signup at Disqus is required.{" "}
+                <a href="/disqus" target="_blank">
+                  STEP BY STEP INSTRUCTIONS
+                </a>
+              </p>
+              <p>
+                <em>Leave this blank if you want unmoderated comments.</em>
+              </p>
               <Form.Item className="form-item">
                 <Input
                   className="login-input"
@@ -253,12 +263,6 @@ class CreateAccount extends Component {
                   value={this.state.disqus_name}
                   onChange={this.handleChanges}
                 />
-                <p style={{ margin: "5px auto 0" }}>
-                  Only needed if you want to moderate comments.
-                </p>
-                <a style={{ margin: "0" }} href="/disqus" target="_blank">
-                  STEP BY STEP INSTRUCTIONS
-                </a>
               </Form.Item>
               <Form.Item>
                 {this.props.error && (

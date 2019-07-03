@@ -1,22 +1,23 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { Title } from "./landingStyles";
 import { Link } from "react-router-dom";
 
 export default function Mission() {
   return (
     <MissionContainer>
       <Article>
-        <h2>What We Can Offer</h2>
+        <Title>Unsilenced</Title>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheet
+          Comments disabled? Not anymore. Take back the conversation with your
+          own Unsilenced Space. Add a simple link to your video description to
+          provide an enhanced viewing experience for your visitors, complete
+          with comments. Moderated and unmoderated options available.
         </p>
-        <GetStarted to={localStorage.getItem("token") ? "/dashbord" : "/login"}>
+        <p>This service is and always will be free.</p>
+        <GetStarted
+          to={localStorage.getItem("token") ? "/dashboard" : "/login"}
+        >
           Get Started
         </GetStarted>
       </Article>

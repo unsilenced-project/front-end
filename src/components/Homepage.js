@@ -12,16 +12,6 @@ const Homepage = props => {
   if (localStorage.getItem("token")) props.history.push("/dashboard");
   return (
     <div>
-      {/* <div style={{ marginTop: 70 }}>
-        <a href="/unsilenced/c6rkYrwudww">Sample Video and Comments</a>
-        <br />
-        <a href="/login">Login</a>
-        <br />
-        <a href="/register">Register</a>
-        <br />
-        <a href="/dashbord">Dashboard</a>
-      </div> */}
-
       <section style={{ marginTop: 80 }}>
         <Navigation />
         <Mission />
