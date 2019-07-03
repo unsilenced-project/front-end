@@ -49,7 +49,7 @@ const Navigation = props => {
           >
             Home
           </NavLinkWrap>
-          <NavLinkWrap
+          <NavLinkWrap exact
             to="/"
             onClick={e => {
               props.history.push("/");
