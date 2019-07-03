@@ -19,9 +19,9 @@ const YoutubeVideo = ({ youtubeId }) => {
         position: "relative",
         paddingBottom: "56.25%" /* 16:9 */,
         paddingTop: 25,
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 100,
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 73,
         height: 0
       }}
     >

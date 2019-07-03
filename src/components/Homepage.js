@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Menu, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mission from "./LandingPage/Mission";
@@ -7,7 +8,8 @@ import UserTestimonials from "./LandingPage/UserTestimonials";
 import Navigation from "./Navigation/Navigation";
 import Footer from "./Footer/Footer";
 
-const Homepage = () => {
+const Homepage = props => {
+  if (localStorage.getItem("token")) props.history.push("/dashboard");
   return (
     <div>
       {/* <div style={{ marginTop: 70 }}>
@@ -31,4 +33,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default withRouter(Homepage);

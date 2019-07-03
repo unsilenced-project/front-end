@@ -23,7 +23,7 @@ class App extends React.Component {
             <Route path="/register" component={CreateAccount} />
             <Route path="/about" component={About} />
 
-            <PrivateRoute path="/dashbord" component={Dashboard} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/settings" component={Settings} />
 
             <Route
