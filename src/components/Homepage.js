@@ -4,7 +4,8 @@ import { Menu, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mission from "./LandingPage/Mission";
 import Steps from "./LandingPage/ServiceSteps";
-import UserTestimonials from "./LandingPage/UserTestimonials";
+import AboutPage from "./About/About";
+// import UserTestimonials from "./LandingPage/UserTestimonials";
 import Navigation from "./Navigation/Navigation";
 import Footer from "./Footer/Footer";
 
@@ -15,8 +16,9 @@ const Homepage = props => {
       <section style={{ marginTop: 80 }}>
         <Navigation />
         <Mission />
-        <Steps />
-        <UserTestimonials />
+        {/* <Steps />
+        <UserTestimonials /> */}
+        <AboutPage />
         <Footer />
       </section>
     </div>

@@ -5,6 +5,7 @@ import logo from "../../assets/logo.png";
 import { NavLink, withRouter, Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import { Header, Icon, Image, Menu, Segment, Sidebar } from "semantic-ui-react";
+import scrollToComponent from "react-scroll-to-component";
 
 const Navigation = props => {
   const [isOpen, setSideBar] = useState(false);
@@ -25,7 +26,9 @@ const Navigation = props => {
   return (
     <NavContainer style={{ boxShadow: "0 0 5px rgba(0,0,0,0.5)" }}>
       <Logo>
-        <img src={logo} alt="Unsilenced logo" />
+        <Link to="/">
+          <img src={logo} alt="Unsilenced logo" />
+        </Link>
       </Logo>
 
       <NavContent>
@@ -33,7 +36,15 @@ const Navigation = props => {
           <NavLinkWrap exact to="/">
             Home
           </NavLinkWrap>
-          <NavLinkWrap to="/about">About</NavLinkWrap>
+          <NavLinkWrap
+            to="/"
+            onClick={e => {
+              e.preventDefault();
+              window.scrollTo(0, 600);
+            }}
+          >
+            About
+          </NavLinkWrap>
           {localStorage.getItem("token") && (
             <SettingsWrapper>
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
@@ -74,7 +85,13 @@ const Navigation = props => {
             Home
           </Menu.Item>
         </Link>
-        <Link to="/about">
+        <Link
+          to="/"
+          onClick={e => {
+            e.preventDefault();
+            window.scrollTo(0, 600);
+          }}
+        >
           <Menu.Item as="a" style={{ marginBottom: 50 }}>
             <Icon name="user md" />
             About

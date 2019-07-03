@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard/Dashbord";
 import PrivateRoute from "./components/PrivateRoute";
 import Settings from "./components/Settings/Settings";
 import About from "./components/About/About";
+import Tutorial from "./components/Tutorial/DisqusTutorial";
 
 class App extends React.Component {
   render() {
@@ -22,10 +23,9 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={CreateAccount} />
             <Route path="/about" component={About} />
-
+            <Route path="/disqus" component={Tutorial} />
             <PrivateRoute path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/settings" component={Settings} />
-
             <Route
               exact
               path="/:username/:videoID"
