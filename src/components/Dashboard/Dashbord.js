@@ -25,6 +25,7 @@ const Dashboard = () => {
   };
 
   const handleGenerate = () => {
+    localStorage.setItem("youtube", inputLink);
     linkParser(inputLink);
   };
 
