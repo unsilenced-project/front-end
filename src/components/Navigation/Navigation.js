@@ -26,14 +26,27 @@ const Navigation = props => {
   return (
     <NavContainer style={{ boxShadow: "0 0 5px rgba(0,0,0,0.5)" }}>
       <Logo>
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={e => {
+            e.preventDefault();
+            window.scrollTo(0, 0);
+          }}
+        >
           <img src={logo} alt="Unsilenced logo" />
         </Link>
       </Logo>
 
       <NavContent>
         <NavItems>
-          <NavLinkWrap exact to="/">
+          <NavLinkWrap
+            exact
+            to="/"
+            onClick={e => {
+              e.preventDefault();
+              window.scrollTo(0, 0);
+            }}
+          >
             Home
           </NavLinkWrap>
           <NavLinkWrap
@@ -76,10 +89,16 @@ const Navigation = props => {
         <Menu.Item as="div" />
         <Menu.Item as="div" style={{ marginBottom: 50 }}>
           <Logo>
-            <img src={logo} alt="logoo" />
+            <img src={logo} alt="Unsilenced logo" />
           </Logo>
         </Menu.Item>
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={e => {
+            e.preventDefault();
+            window.scrollTo(0, 0);
+          }}
+        >
           <Menu.Item as="div" style={{ marginBottom: 50 }}>
             <Icon name="code" />
             Home
