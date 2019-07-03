@@ -61,6 +61,10 @@ const Article = styled.article`
     text-align: justify;
     padding-top: 2rem;
     font-size: 1.3rem;
+
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
   }
 
   h2 {
