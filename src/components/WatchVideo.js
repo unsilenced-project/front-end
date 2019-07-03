@@ -1,8 +1,10 @@
 import React from "react";
 import YouTubeVideo from "./YouTubeVideo";
 import DisqusEmbed from "./DisqusEmbed";
+import { Icon } from "semantic-ui-react";
 import Navigation from "./Navigation/Navigation";
 import Footer from "./Footer/Footer";
+import styled from "styled-components";
 
 const WatchVideo = props => {
   let { username, videoID } = props.match.params;
@@ -16,10 +18,22 @@ const WatchVideo = props => {
     id: videoID
   };
 
+  const handleLike = () => {
+    const youtubeUrl = `https://unsilenced.netlify.com${videoID}`;
+  };
+
   return (
     <>
       <Navigation />
       <YouTubeVideo youtubeId={videoID} />
+      <ButtonContainer>
+        <LikeButton
+          name="thumbs up"
+          size="big"
+          corner="bottom =left"
+          onClick={handleLike}
+        />
+      </ButtonContainer>
       <DisqusEmbed
         disqusShortname={disqusShortname}
         disqusConfig={disqusConfig}
@@ -30,3 +44,20 @@ const WatchVideo = props => {
 };
 
 export default WatchVideo;
+
+const LikeButton = styled(Icon)`
+  position: absolute;
+
+  &:hover {
+    color: darkred;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 30px;
+  margin-left: 30px;
+  cursor: pointer;
+`;
