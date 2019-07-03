@@ -33,7 +33,7 @@ const WatchVideo = props => {
   const handleYoutubePusher = () => {
     //window.location.href = localStorage.getItem("youtube");
     window.open(
-      localStorage.getItem("youtube"),
+      `https://www.youtube.com/watch?v=${videoID}`,
       "_blank" // <- This is what makes it open in a new window.
     );
   };
