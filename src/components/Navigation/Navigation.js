@@ -29,7 +29,7 @@ const Navigation = props => {
         <Link
           to="/"
           onClick={e => {
-            e.preventDefault();
+            props.history.push("/");
             window.scrollTo(0, 0);
           }}
         >
@@ -43,7 +43,7 @@ const Navigation = props => {
             exact
             to="/"
             onClick={e => {
-              e.preventDefault();
+              props.history.push("/");
               window.scrollTo(0, 0);
             }}
           >
@@ -52,7 +52,7 @@ const Navigation = props => {
           <NavLinkWrap
             to="/"
             onClick={e => {
-              e.preventDefault();
+              props.history.push("/");
               window.scrollTo(0, 600);
             }}
           >
@@ -61,6 +61,16 @@ const Navigation = props => {
           {localStorage.getItem("token") && (
             <SettingsWrapper>
               <NavLinkWrap to="/settings">Settings</NavLinkWrap>
+              <NavLinkWrap
+                exact
+                to="/dashboard"
+                onClick={e => {
+                  props.history.push("/dashboard");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Dashboard
+              </NavLinkWrap>
               <Button
                 inverted
                 color="red"
@@ -95,7 +105,7 @@ const Navigation = props => {
         <Link
           to="/"
           onClick={e => {
-            e.preventDefault();
+            props.history.push("/");
             window.scrollTo(0, 0);
           }}
         >
@@ -107,7 +117,7 @@ const Navigation = props => {
         <Link
           to="/"
           onClick={e => {
-            e.preventDefault();
+            props.history.push("/");
             window.scrollTo(0, 600);
           }}
         >
