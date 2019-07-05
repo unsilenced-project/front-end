@@ -282,7 +282,7 @@ class CreateAccount extends Component {
                     <>
                       Sign up <em>{this.state.channel_name}</em>{" "}
                       {this.state.img_link ? (
-                        <img src={this.state.img_link} width={20} height={20} />
+                        <img src={this.state.img_link} width={20} height={20} alt="img"/>
                       ) : (
                         ""
                       )}

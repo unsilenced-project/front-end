@@ -1,7 +1,6 @@
 import { compose, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import axiosWithAuth from "./middleware/axiosWithAuth";
 import setToken from "./middleware/setToken";
 import rooterReducer from "./reducers";
 
