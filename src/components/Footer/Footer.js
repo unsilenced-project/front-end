@@ -48,9 +48,3 @@ const Logo = styled.div`
     border-radius: 30%;
   }
 `;
-
-const NavContent = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-`;

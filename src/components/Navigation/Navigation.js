@@ -4,8 +4,7 @@ import { FaBars } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { NavLink, withRouter, Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
-import { Header, Icon, Image, Menu, Segment, Sidebar } from "semantic-ui-react";
-import scrollToComponent from "react-scroll-to-component";
+import {  Icon, Menu, Sidebar } from "semantic-ui-react";
 
 const Navigation = props => {
   const [isOpen, setSideBar] = useState(false);

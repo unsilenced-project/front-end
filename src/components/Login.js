@@ -4,6 +4,7 @@ import { login } from "../actions/authActions";
 import { Spin, Alert, Form, Icon, Input, Button } from "antd";
 import Navigation from "./Navigation/Navigation";
 import Flip from "react-reveal/Flip";
+import Modal from "./utils/Modal/Modal";
 
 import "antd/dist/antd.css";
 import "./Login.scss";
@@ -12,7 +13,8 @@ class Login extends Component {
   state = {
     credentials: {
       username: "",
-      password: ""
+      password: "",
+      openModal: false
     }
   };
 

@@ -1,12 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { FaRegWindowClose } from "react-icons/fa";
-import {
-  primary,
-  danger,
-  secondary,
-  pale_green,
-  black
-} from "../../styled/variables";
 
 const animatetop = keyframes`
   from {top:-300px; opacity:0}
@@ -51,7 +44,7 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   padding: 1rem;
-  background: ${pale_green};
+  background: palegreen;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -69,7 +62,7 @@ export const CloseButton = styled(FaRegWindowClose)`
   font-weight: bold;
   &:hover,
   &:focus {
-    color: ${secondary};
+    color: yellow;
     text-decoration: none;
     cursor: pointer;
   }
@@ -78,7 +71,7 @@ export const CloseButton = styled(FaRegWindowClose)`
 export const Body = styled.div`
   padding: 1rem 1.5rem;
   font-size: 1.6rem;
-  color: ${black};
+  color: "black";
   p {
     text-align: center;
     padding: 1rem;
@@ -87,7 +80,7 @@ export const Body = styled.div`
 
 export const Footer = styled.div`
   padding: 1rem;
-  background: ${pale_green};
+  background: palegreen;
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
@@ -107,19 +100,19 @@ const Button = styled.button`
 `;
 
 export const ContinueBtn = styled(Button)`
-  background-color: ${primary};
+  background-color: darkred;
   margin-right: 0.8rem;
   &:hover {
     background: white;
-    color: ${primary};
-    border: 2px solid ${primary};
+    color: darkred;
+    border: 2px solid darkred;
   }
 `;
 export const CancelBtn = styled(Button)`
-  background-color: ${danger};
+  background-color: "green";
   &:hover {
     background: white;
-    color: ${danger};
-    border: 2px solid ${danger};
+    color: "green";
+    border: 2px solid green;
   }
 `;
