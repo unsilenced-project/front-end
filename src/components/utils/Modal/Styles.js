@@ -40,15 +40,24 @@ export const Container = styled.div`
   animation-duration: 0.2s;
   z-index: 2000;
   display: ${props => (props.show ? "block" : "none")};
-  border-radius: 20%;
+  border-radius: 10px;
+  border-radius: 10px;
 `;
 
 export const Header = styled.div`
   padding: 1rem;
   background: #cc8800;
-  color: white;
+  color: darkred;
   display: flex;
   justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  img {
+    max-width: 70px;
+    height: 50px;
+    opacity: 0.2;
+  }
 `;
 
 export const Title = styled.h3`
@@ -63,7 +72,7 @@ export const CloseButton = styled(FaRegWindowClose)`
   font-weight: bold;
   &:hover,
   &:focus {
-    color: yellow;
+    color: red;
     text-decoration: none;
     cursor: pointer;
   }
@@ -85,6 +94,8 @@ export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 const Button = styled.button`

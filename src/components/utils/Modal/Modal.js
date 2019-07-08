@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import logo from "../../../assets/logo.png";
 
 import {
   Backdrop,
@@ -37,6 +38,8 @@ function Modal({
       <Backdrop show={show} onClick={toggle} />
       <Container show={show} width={width}>
         <Header>
+          <img src={logo} alt="Unsilenced logo" />
+
           <Title>{modalTitle}</Title>
           <CloseButton onClick={toggle}>X</CloseButton>
         </Header>
