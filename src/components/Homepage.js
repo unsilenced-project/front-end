@@ -1,9 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { Menu, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Mission from "./LandingPage/Mission";
-import Steps from "./LandingPage/ServiceSteps";
 import AboutPage from "./About/About";
 // import UserTestimonials from "./LandingPage/UserTestimonials";
 import Navigation from "./Navigation/Navigation";

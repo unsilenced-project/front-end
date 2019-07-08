@@ -8,7 +8,7 @@ const Navigation = props => {
       <Logo>
         <img src={logo} alt="logoo" />
       </Logo>
-      <h1>ALL RIGHT RESERVED</h1>
+      <h1>ALL RIGHTS RESERVED</h1>
     </NavContainer>
   );
 };
@@ -16,7 +16,7 @@ const Navigation = props => {
 export default Navigation;
 
 const NavContainer = styled.div`
-  z-index: 1000;
+  z-index: 2;
 
   bottom: 0;
   left: 0;

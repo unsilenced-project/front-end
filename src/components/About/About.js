@@ -1,7 +1,6 @@
 import React from "react";
 import "styled-components/macro";
 import styled from "styled-components";
-import Navigation from "../Navigation/Navigation";
 import sorin from "../../assets/sorin.jpg";
 import michael from "../../assets/michael.jpeg";
 // import Footer from "../Footer/Footer";
@@ -119,7 +118,7 @@ const Title = styled.div`
 
 const Container = styled.div`
   font-family: "Work Sans", sans-serif;
-  background=${props => (props.background ? props.background : "darkred")};
+  background:${props => (props.background ? props.background : "darkred")};
   color: white;
 
   @media (max-width: 500px) {

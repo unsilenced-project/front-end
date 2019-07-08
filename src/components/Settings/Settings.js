@@ -1,10 +1,10 @@
-import React, { createRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 import styled from "styled-components";
 import Input from "./InputCompoent";
 import { connect } from "react-redux";
 import { getUserById, updateUser } from "../../actions/userActions";
-import { Button, Message, Segment } from "semantic-ui-react";
+import { Button, Message } from "semantic-ui-react";
 
 const Settings = props => {
   const [usernameData, setUsernameData] = useState(props.currentUser.username);
@@ -36,8 +36,6 @@ const Settings = props => {
       channel_name: ChannelName,
       disqus_name: DisqusName
     };
-
-    console.log(userId, newUser);
     props.updateUser(userId, newUser);
   };
 
@@ -46,10 +44,12 @@ const Settings = props => {
 
     setError("");
     if (passwrdData === newPassword) {
-      alert(passwrdData);
       props.updateUser(userId, { password: passwrdData });
+      setError("");
     } else {
-      setError("Please provide the same password in the fields");
+      setError(
+        "Please provide the same password in the fields, password must be > 3 characters"
+      );
     }
   };
 
@@ -64,7 +64,13 @@ const Settings = props => {
   return (
     <div>
       <Navigation />
+
       <FormContainer>
+        <DisqusButton inverted color="green" size="large">
+          <a href="/disqus" target="_blank">
+            DISQUS STEP BY STEP INSTRUCTIONS HERE
+          </a>
+        </DisqusButton>
         <Input
           content="Username"
           placeholder={username}
@@ -100,6 +106,13 @@ const Settings = props => {
         </CostumButton>
 
         <PasswordField>
+          {/* <Input
+            content="Current Password"
+            placeholder={currentPassword}
+            handleChange={e => setPasswordData(e.target.value)}
+            loading={props.loading}
+            type="password"
+          /> */}
           <Input
             content="New Password"
             placeholder="new password"
@@ -120,11 +133,6 @@ const Settings = props => {
 
           {error && <Message>{error}</Message>}
         </PasswordField>
-        <DisqusButton inverted color="green" size="large">
-          <a href="/disqus" target="_blank">
-            DISQUS STEP BY STEP INSTRUCTIONS
-          </a>
-        </DisqusButton>
       </FormContainer>
     </div>
   );
