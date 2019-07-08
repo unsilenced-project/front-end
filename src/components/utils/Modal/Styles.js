@@ -1,12 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { FaRegWindowClose } from "react-icons/fa";
-import {
-  primary,
-  danger,
-  secondary,
-  pale_green,
-  black
-} from "../../styled/variables";
 
 const animatetop = keyframes`
   from {top:-300px; opacity:0}
@@ -15,7 +8,7 @@ const animatetop = keyframes`
 export const Backdrop = styled.div`
   display: ${props => (props.show ? "block" : "none")};
   position: fixed;
-  z-index: 1900;
+  z-index: 1000;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -47,21 +40,31 @@ export const Container = styled.div`
   animation-duration: 0.2s;
   z-index: 2000;
   display: ${props => (props.show ? "block" : "none")};
+  border-radius: 10px;
+  border-radius: 10px;
 `;
 
 export const Header = styled.div`
   padding: 1rem;
-  background: ${pale_green};
-  color: white;
+  background: #cc8800;
+  color: darkred;
   display: flex;
   justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  img {
+    max-width: 70px;
+    height: 50px;
+    opacity: 0.2;
+  }
 `;
 
 export const Title = styled.h3`
   color: white;
   margin: 0;
   padding: 0;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 `;
 export const CloseButton = styled(FaRegWindowClose)`
   color: white;
@@ -69,7 +72,7 @@ export const CloseButton = styled(FaRegWindowClose)`
   font-weight: bold;
   &:hover,
   &:focus {
-    color: ${secondary};
+    color: red;
     text-decoration: none;
     cursor: pointer;
   }
@@ -78,7 +81,7 @@ export const CloseButton = styled(FaRegWindowClose)`
 export const Body = styled.div`
   padding: 1rem 1.5rem;
   font-size: 1.6rem;
-  color: ${black};
+  color: "black";
   p {
     text-align: center;
     padding: 1rem;
@@ -87,10 +90,12 @@ export const Body = styled.div`
 
 export const Footer = styled.div`
   padding: 1rem;
-  background: ${pale_green};
+  background: #cc8800;
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `;
 
 const Button = styled.button`
@@ -107,19 +112,21 @@ const Button = styled.button`
 `;
 
 export const ContinueBtn = styled(Button)`
-  background-color: ${primary};
+  background-color: darkred;
   margin-right: 0.8rem;
+  font-size: 16px;
+  outline: none;
   &:hover {
     background: white;
-    color: ${primary};
-    border: 2px solid ${primary};
+    color: darkred;
   }
 `;
 export const CancelBtn = styled(Button)`
-  background-color: ${danger};
+  background-color: #b32d00;
+  font-size: 16px;
+  outline: none;
   &:hover {
     background: white;
-    color: ${danger};
-    border: 2px solid ${danger};
+    color: darkred;
   }
 `;

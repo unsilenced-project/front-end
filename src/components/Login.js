@@ -4,6 +4,7 @@ import { login } from "../actions/authActions";
 import { Spin, Alert, Form, Icon, Input, Button } from "antd";
 import Navigation from "./Navigation/Navigation";
 import Flip from "react-reveal/Flip";
+import Modal from "./utils/Modal/Modal";
 
 import "antd/dist/antd.css";
 import "./Login.scss";
@@ -12,7 +13,9 @@ class Login extends Component {
   state = {
     credentials: {
       username: "",
-      password: ""
+      password: "",
+      showModal: false,
+      email: ""
     }
   };
 
@@ -24,6 +27,12 @@ class Login extends Component {
       }
     });
   }
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  };
 
   handleChanges = event => {
     event.preventDefault();
@@ -42,6 +51,10 @@ class Login extends Component {
     this.props.login(this.state.credentials).then(() => {
       !this.props.error && this.props.history.push("/dashboard");
     });
+  };
+
+  handleConfirm = () => {
+    alert(this.state.email);
   };
 
   render() {
@@ -107,7 +120,9 @@ class Login extends Component {
                   href="/forgot"
                   onClick={e => {
                     e.preventDefault();
-                    this.props.history.push("/forgot");
+                    this.setState({
+                      showModal: true
+                    });
                   }}
                 >
                   Forgot password?
@@ -126,6 +141,34 @@ class Login extends Component {
             </Form>
           </div>
         </Flip>
+        <Modal
+          show={this.state.showModal}
+          toggle={this.toggleModal}
+          modalTitle="Forgot Password"
+          width="45%"
+          clicked={this.handleConfirm}
+        >
+          <Form.Item className="form-item">
+            <Input
+              required
+              className="forgot-email"
+              prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
+              name="forgotemail"
+              type="mail"
+              placeholder="enter your email here"
+              autoComplete="forgot-email"
+              value={this.state.email}
+              onChange={e => {
+                this.setState({
+                  email: e.target.value
+                });
+              }}
+            />
+            <p>
+              after pressing contiune a message with new password will be sent
+            </p>
+          </Form.Item>
+        </Modal>
       </div>
     );
   }

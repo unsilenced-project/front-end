@@ -1,5 +1,6 @@
 import React from "react";
 import propTypes from "prop-types";
+import logo from "../../../assets/logo.png";
 
 import {
   Backdrop,
@@ -13,7 +14,15 @@ import {
   Header
 } from "./Styles";
 
-function Modal({ children, show, toggle, modalTitle, clicked, modalType }) {
+function Modal({
+  children,
+  show,
+  toggle,
+  modalTitle,
+  clicked,
+  modalType,
+  width
+}) {
   let footerContent = (
     <React.Fragment>
       <ContinueBtn onClick={clicked}>Continue</ContinueBtn>
@@ -27,8 +36,10 @@ function Modal({ children, show, toggle, modalTitle, clicked, modalType }) {
   return (
     <React.Fragment>
       <Backdrop show={show} onClick={toggle} />
-      <Container show={show}>
+      <Container show={show} width={width}>
         <Header>
+          <img src={logo} alt="Unsilenced logo" />
+
           <Title>{modalTitle}</Title>
           <CloseButton onClick={toggle}>X</CloseButton>
         </Header>
