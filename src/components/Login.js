@@ -14,7 +14,7 @@ class Login extends Component {
     credentials: {
       username: "",
       password: "",
-      openModal: false
+      showModal: false
     }
   };
 
@@ -26,6 +26,12 @@ class Login extends Component {
       }
     });
   }
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  };
 
   handleChanges = event => {
     event.preventDefault();
@@ -109,7 +115,9 @@ class Login extends Component {
                   href="/forgot"
                   onClick={e => {
                     e.preventDefault();
-                    this.props.history.push("/forgot");
+                    this.setState({
+                      showModal: true
+                    });
                   }}
                 >
                   Forgot password?
@@ -128,6 +136,7 @@ class Login extends Component {
             </Form>
           </div>
         </Flip>
+        <Modal show={this.state.showModal} toggle={this.toggleModal} />
       </div>
     );
   }
