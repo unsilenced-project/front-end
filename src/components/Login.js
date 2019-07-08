@@ -14,7 +14,8 @@ class Login extends Component {
     credentials: {
       username: "",
       password: "",
-      showModal: false
+      showModal: false,
+      email: ""
     }
   };
 
@@ -50,6 +51,10 @@ class Login extends Component {
     this.props.login(this.state.credentials).then(() => {
       !this.props.error && this.props.history.push("/dashboard");
     });
+  };
+
+  handleConfirm = () => {
+    alert(this.state.email);
   };
 
   render() {
@@ -136,7 +141,34 @@ class Login extends Component {
             </Form>
           </div>
         </Flip>
-        <Modal show={this.state.showModal} toggle={this.toggleModal} />
+        <Modal
+          show={this.state.showModal}
+          toggle={this.toggleModal}
+          modalTitle="Forgot Password"
+          width="45%"
+          clicked={this.handleConfirm}
+        >
+          <Form.Item className="form-item">
+            <Input
+              required
+              className="forgot-email"
+              prefix={<Icon type="mail" style={{ color: "rgba(0,0,0,.25)" }} />}
+              name="forgotemail"
+              type="mail"
+              placeholder="enter your email here"
+              autoComplete="forgot-email"
+              value={this.state.email}
+              onChange={e => {
+                this.setState({
+                  email: e.target.value
+                });
+              }}
+            />
+            <p>
+              after pressing contiune a message with new password will be sent
+            </p>
+          </Form.Item>
+        </Modal>
       </div>
     );
   }

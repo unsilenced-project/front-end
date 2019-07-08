@@ -8,7 +8,7 @@ const animatetop = keyframes`
 export const Backdrop = styled.div`
   display: ${props => (props.show ? "block" : "none")};
   position: fixed;
-  z-index: 1900;
+  z-index: 1000;
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -40,11 +40,12 @@ export const Container = styled.div`
   animation-duration: 0.2s;
   z-index: 2000;
   display: ${props => (props.show ? "block" : "none")};
+  border-radius: 20%;
 `;
 
 export const Header = styled.div`
   padding: 1rem;
-  background: palegreen;
+  background: #cc8800;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -54,7 +55,7 @@ export const Title = styled.h3`
   color: white;
   margin: 0;
   padding: 0;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 `;
 export const CloseButton = styled(FaRegWindowClose)`
   color: white;
@@ -80,7 +81,7 @@ export const Body = styled.div`
 
 export const Footer = styled.div`
   padding: 1rem;
-  background: palegreen;
+  background: #cc8800;
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
@@ -102,17 +103,19 @@ const Button = styled.button`
 export const ContinueBtn = styled(Button)`
   background-color: darkred;
   margin-right: 0.8rem;
+  font-size: 16px;
+  outline: none;
   &:hover {
     background: white;
     color: darkred;
-    border: 2px solid darkred;
   }
 `;
 export const CancelBtn = styled(Button)`
-  background-color: "green";
+  background-color: #b32d00;
+  font-size: 16px;
+  outline: none;
   &:hover {
     background: white;
-    color: "green";
-    border: 2px solid green;
+    color: darkred;
   }
 `;
