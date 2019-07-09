@@ -22,7 +22,7 @@ export const Backdrop = styled.div`
 export const Container = styled.div`
   position: fixed;
   left: 50%;
-  top: 100px;
+  top: 150px;
   transform: translateX(-50%);
   background-color: #fefefe;
   margin: auto;

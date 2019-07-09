@@ -46,3 +46,5 @@ export const updateUser = (id, userData) => dispatch => {
       dispatch(stopLoading());
     });
 };
+
+export const forgetPassword = userEmail => dispatch => {};
