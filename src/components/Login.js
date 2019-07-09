@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
 import { forgetPassword } from "../actions/userActions";
-import { Spin, Alert, Form, Icon, Input, Button } from "antd";
+import { Spin, Alert, Form, Icon, Input, Button, notification } from "antd";
 import Navigation from "./Navigation/Navigation";
 import Flip from "react-reveal/Flip";
 import Modal from "./utils/Modal/Modal";
@@ -55,12 +55,23 @@ class Login extends Component {
     });
   };
 
+  openNotification = () => {
+    notification.open({
+      message: "Email Notification",
+      description: "You will recive in a shot time a email with a new password",
+      onClick: () => {
+        console.log("Notification Clicked!");
+      }
+    });
+  };
+
   handleConfirm = () => {
-    debugger;
     if (this.state.email && this.state.email.includes("@")) {
-      this.props.forgetPassword({ email: this.state.email });
-      this.setState({
-        showModal: false
+      this.props.forgetPassword({ email: this.state.email }).then(response => {
+        if (response) {
+          this.setState({ showModal: false });
+          this.openNotification();
+        }
       });
     } else {
       this.setState({
@@ -186,6 +197,13 @@ class Login extends Component {
                 className="error"
               />
             )}
+            {this.props.errorMessage && (
+              <Alert
+                message={this.props.errorMessage}
+                type="error"
+                className="error"
+              />
+            )}
           </Form.Item>
         </Modal>
       </div>
@@ -195,7 +213,8 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   error: state.user.error,
-  loggingIn: state.user.loggingIn
+  loggingIn: state.user.loggingIn,
+  errorMessage: state.userData.message
 });
 
 const mapDispatchToProps = {

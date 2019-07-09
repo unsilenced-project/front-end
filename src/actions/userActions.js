@@ -51,15 +51,17 @@ export const updateUser = (id, userData) => dispatch => {
 
 export const forgetPassword = userEmail => dispatch => {
   dispatch(startLoading());
-  debugger;
-  axios
+  return axios
     .post(urlPasswordForgot, userEmail)
     .then(res => {
       //console.log(res);
-      debugger;
+      return res.data;
     })
-    .catch(() => {
-      debugger;
+    .catch(err => {
+      dispatch({
+        type: types.FORGET_PASSWORD_FAIL,
+        payload: err.response.data.message
+      });
     })
     .finally(() => {
       dispatch(stopLoading());

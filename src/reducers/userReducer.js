@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        message: action.payload
       };
     default:
       return state;
