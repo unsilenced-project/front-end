@@ -58,7 +58,7 @@ class Login extends Component {
   openNotification = () => {
     notification.open({
       message: "Email Notification",
-      description: "You will recive in a shot time a email with a new password",
+      description: "You will recive in a short time a email with a new password",
       onClick: () => {
         console.log("Notification Clicked!");
       }
