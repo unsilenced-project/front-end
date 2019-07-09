@@ -71,11 +71,16 @@ export default function AboutPage() {
               <a
                 href="https://www.linkedin.com/in/michael-hart-dev/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <LinkedinIcon />
               </a>
 
-              <a href="https://github.com/fromthehart" target="_blank">
+              <a
+                href="https://github.com/fromthehart"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
@@ -87,10 +92,15 @@ export default function AboutPage() {
               <a
                 href="https://www.linkedin.com/in/chis-sorin-993940130/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <LinkedinIcon />
               </a>
-              <a href="https://github.com/SorinC6" target="_blank">
+              <a
+                href="https://github.com/SorinC6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <GitHubIcon />
               </a>
             </SocialLinksWrapper>
@@ -118,7 +128,7 @@ const Title = styled.div`
 
 const Container = styled.div`
   font-family: "Work Sans", sans-serif;
-  background:${props => (props.background ? props.background : "darkred")};
+  background: ${props => (props.background ? props.background : "darkred")};
   color: white;
 
   @media (max-width: 500px) {

@@ -5,6 +5,8 @@ import Input from "./InputCompoent";
 import { connect } from "react-redux";
 import { getUserById, updateUser } from "../../actions/userActions";
 import { Button, Message } from "semantic-ui-react";
+import settingsBg from "../../assets/logosettings.png";
+import Footer from "../Footer/Footer";
 
 const Settings = props => {
   const [usernameData, setUsernameData] = useState(props.currentUser.username);
@@ -62,7 +64,7 @@ const Settings = props => {
     disqus_name
   } = props.currentUser;
   return (
-    <div>
+    <SettingsWrap>
       <Navigation />
 
       <FormContainer>
@@ -134,7 +136,8 @@ const Settings = props => {
           {error && <Message>{error}</Message>}
         </PasswordField>
       </FormContainer>
-    </div>
+      <Footer />
+    </SettingsWrap>
   );
 };
 
@@ -186,4 +189,13 @@ const DisqusButton = styled(Button)`
   a {
     text-decoration: none;
   }
+`;
+
+const SettingsWrap = styled.div`
+  height: 100vh;
+  background-color:darkred;
+  /* background-image: url(${settingsBg}); */
+  background-size: cover;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
 `;

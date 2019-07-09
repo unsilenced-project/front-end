@@ -3,7 +3,8 @@ import * as types from "../actions/userTypes";
 const initialState = {
   userData: [],
   loading: false,
-  error: null
+  error: null,
+  message: null
 };
 
 export default (state = initialState, action) => {
@@ -35,6 +36,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false
+      };
+    case types.FORGET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null
+      };
+    case types.FORGET_PASSWORD_FAIL:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload
       };
     default:
       return state;

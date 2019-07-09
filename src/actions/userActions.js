@@ -1,7 +1,9 @@
 import axiosWithAuth from "./axiosConfig";
+import axios from "axios";
 import * as types from "./userTypes";
 
 const baseURL = "https://unsilenced.herokuapp.com/users";
+const urlPasswordForgot = "https://unsilenced.herokuapp.com/send-email";
 
 const startLoading = () => {
   return {
@@ -41,6 +43,25 @@ export const updateUser = (id, userData) => dispatch => {
     })
     .catch(err => {
       dispatch({ type: types.UPDATE_USER_FAIL, payload: err.message });
+    })
+    .finally(() => {
+      dispatch(stopLoading());
+    });
+};
+
+export const forgetPassword = userEmail => dispatch => {
+  dispatch(startLoading());
+  return axios
+    .post(urlPasswordForgot, userEmail)
+    .then(res => {
+      //console.log(res);
+      return res.data;
+    })
+    .catch(err => {
+      dispatch({
+        type: types.FORGET_PASSWORD_FAIL,
+        payload: err.response.data.message
+      });
     })
     .finally(() => {
       dispatch(stopLoading());
