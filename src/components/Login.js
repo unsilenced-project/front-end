@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/authActions";
+import { forgetPassword } from "../actions/userActions";
 import { Spin, Alert, Form, Icon, Input, Button } from "antd";
 import Navigation from "./Navigation/Navigation";
 import Flip from "react-reveal/Flip";
@@ -15,7 +16,8 @@ class Login extends Component {
       username: "",
       password: "",
       showModal: false,
-      email: ""
+      email: "",
+      error: null
     }
   };
 
@@ -54,7 +56,17 @@ class Login extends Component {
   };
 
   handleConfirm = () => {
-    alert(this.state.email);
+    debugger;
+    if (this.state.email && this.state.email.includes("@")) {
+      this.props.forgetPassword({ email: this.state.email });
+      this.setState({
+        showModal: false
+      });
+    } else {
+      this.setState({
+        error: "please provide a valid email"
+      });
+    }
   };
 
   render() {
@@ -167,6 +179,13 @@ class Login extends Component {
             <p>
               after pressing contiune a message with new password will be sent
             </p>
+            {this.state.error && (
+              <Alert
+                message={this.state.error}
+                type="error"
+                className="error"
+              />
+            )}
           </Form.Item>
         </Modal>
       </div>
@@ -179,7 +198,12 @@ const mapStateToProps = state => ({
   loggingIn: state.user.loggingIn
 });
 
+const mapDispatchToProps = {
+  login,
+  forgetPassword
+};
+
 export default connect(
   mapStateToProps,
-  { login }
+  mapDispatchToProps
 )(Login);
