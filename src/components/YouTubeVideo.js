@@ -1,14 +1,14 @@
 import React from "react";
 
 const YoutubeVideo = ({ youtubeId }) => {
-  const opts = {
-    height: "590",
-    width: "900",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1
-    }
-  };
+  // const opts = {
+  //   height: "590",
+  //   width: "900",
+  //   playerVars: {
+  //     // https://developers.google.com/youtube/player_parameters
+  //     autoplay: 1
+  //   }
+  // };
 
   return (
     // <div>
@@ -26,6 +26,7 @@ const YoutubeVideo = ({ youtubeId }) => {
       }}
     >
       <iframe
+        title="Youtube Player"
         style={{
           position: "absolute",
           top: 0,
@@ -45,9 +46,9 @@ const YoutubeVideo = ({ youtubeId }) => {
   );
 };
 
-const onReady = event => {
-  // access to player in all event handlers via event.target
-  event.target.pauseVideo();
-};
+// const onReady = event => {
+//   // access to player in all event handlers via event.target
+//   event.target.pauseVideo();
+// };
 
 export default YoutubeVideo;

@@ -15,7 +15,7 @@ import final from "../../assets/Final-Step.jpg";
 export default function Tutorial() {
   return (
     <TutorialsWrap>
-      <Navigation/>
+      <Navigation />
       <TutorialContainer>
         <Article>
           <Title>Disqus Quick Start</Title>
@@ -34,6 +34,7 @@ export default function Tutorial() {
             <a
               href="https://disqus.com"
               target="_blank"
+              rel="noopener noreferrer"
               title="Opens in a new window"
             >
               Disqus.com
@@ -112,10 +113,16 @@ export default function Tutorial() {
         <Article color="black" links="darkred">
           <Title color="darkred">Step 7</Title>
           <h3>
-            Select <strong>Community</strong> and choose your moderation settings
+            Select <strong>Community</strong> and choose your moderation
+            settings
           </h3>
           <p>
-            Allowing guest commenting is highly recommended so your visitors don't need to log in with a social media account or Disqus. For the best user experience we also recommend setting Pre-moderation to None, unless you have issues with trolls or are administering an account for a child. Check out the other settings and choose what makes sense for your needs.
+            Allowing guest commenting is highly recommended so your visitors
+            don't need to log in with a social media account or Disqus. For the
+            best user experience we also recommend setting Pre-moderation to
+            None, unless you have issues with trolls or are administering an
+            account for a child. Check out the other settings and choose what
+            makes sense for your needs.
           </p>
           <p>
             <img src={step7} alt="Disqus community page" />
@@ -126,14 +133,16 @@ export default function Tutorial() {
         <Article>
           <Title>Final Step!</Title>
           <h3>
-            Return to our <Link to="/register">Registration</Link> page and enter your <strong>Disqus subdomain</strong> from Step 4 into the form
+            Return to our <Link to="/register">Registration</Link> page and
+            enter your <strong>Disqus subdomain</strong> from Step 4 into the
+            form
           </h3>
           <p>
             <img src={final} alt="Unsilenced signup page" />
           </p>
         </Article>
       </TutorialContainer>
-      <Footer/>
+      <Footer />
     </TutorialsWrap>
   );
 }
@@ -221,33 +230,33 @@ const Article = styled.article`
   img {
     max-width: 100%;
     margin: 0 auto;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
   }
 `;
 
-const GetStarted = styled(Link)`
-  margin-top: 4rem;
-  width: 280px;
-  height: 57px;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  text-align: center;
-  line-height: 35px;
-  font-weight: 400;
-  font-size: 1.8rem;
-  color: darkred;
-  text-transform: uppercase;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:hover {
-    background: black;
-    border: 2px solid #fff;
-    color: #fff;
-    -webkit-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-    text-decoration: none;
-  }
-`;
+// const GetStarted = styled(Link)`
+//   margin-top: 4rem;
+//   width: 280px;
+//   height: 57px;
+//   padding: 1rem 2rem;
+//   background-color: #fff;
+//   text-align: center;
+//   line-height: 35px;
+//   font-weight: 400;
+//   font-size: 1.8rem;
+//   color: darkred;
+//   text-transform: uppercase;
+//   -webkit-transition: all 0.25s ease-in-out;
+//   transition: all 0.25s ease-in-out;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   &:hover {
+//     background: black;
+//     border: 2px solid #fff;
+//     color: #fff;
+//     -webkit-transition: all 0.25s ease-in-out;
+//     transition: all 0.25s ease-in-out;
+//     text-decoration: none;
+//   }
+// `;

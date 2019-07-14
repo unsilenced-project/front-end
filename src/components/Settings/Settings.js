@@ -9,6 +9,7 @@ import settingsBg from "../../assets/logosettings.png";
 import Footer from "../Footer/Footer";
 
 const Settings = props => {
+  const { getUserById } = props;
   const [usernameData, setUsernameData] = useState(props.currentUser.username);
   const [emailData, setEmailData] = useState(props.currentUser.email);
   const [ChannelName, setChannelName] = useState(
@@ -25,7 +26,7 @@ const Settings = props => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     props.getUserById(userId);
-  }, []);
+  }, [getUserById]);
 
   const updateUser = () => {
     setError("");
