@@ -201,26 +201,26 @@ const Card = styled.div`
   }
 `;
 
-const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(37, 37, 37, 0.459);
-  border-radius: 6px;
-  height: 100%;
-  width: 100%;
-  h3 {
-    font-size: 2.5rem;
-    padding: 1rem 0;
-  }
+// const CardContent = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   background-color: rgba(37, 37, 37, 0.459);
+//   border-radius: 6px;
+//   height: 100%;
+//   width: 100%;
+//   h3 {
+//     font-size: 2.5rem;
+//     padding: 1rem 0;
+//   }
 
-  p {
-    margin-top: -5rem;
-    color: white;
-    text-align: center;
-    font-size: 2.5rem;
-    padding: 2rem;
-  }
-`;
+//   p {
+//     margin-top: -5rem;
+//     color: white;
+//     text-align: center;
+//     font-size: 2.5rem;
+//     padding: 2rem;
+//   }
+// `;
 
 const SocialLinksWrapper = styled.div`
   display: flex;
